@@ -16,7 +16,9 @@ body > header {
 
 
 .site-header{
-	
+	border-bottom: 1px dotted #DDD;
+	border-bottom-style: dotted;
+	padding-bottom: 5px;
 }
 
 .site-title{
@@ -141,6 +143,12 @@ p {
 
 .posts article{
 	font-size: 14px;		
+}
+
+.posts article .code{
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 blockquote {
