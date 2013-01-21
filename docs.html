@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<section class="posts">
+	<div class="content">
+		
+		{% include section_nav.html %}
+		
+		<header>
+			<div class="posts-date">{{ page.date | date: "%B %d, %Y" }}</div>
+			<div class="posts-title">{{ page.title }}</div>			
+		</header>
+		
+		<article>    		
+          	{{ content }}
+        </article>
+        
+        {% include section_nav.html %}
+        
+    	<div class="clear"><br><br></div>
+    
+    </div>
+</section>
