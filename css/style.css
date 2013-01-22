@@ -54,7 +54,8 @@ body > header {
 
 .post-index{
 	width: 800px;
-	margin: auto;
+	margin: 0px 50px;
+	font-size: 12px;
 }
 
 .post-index tr{
@@ -64,22 +65,20 @@ body > header {
 }
 
 .post-index tr span{	
-	font-size: 12px;
+	color: #999;
 }
 
 .post-index tr a{
 	background: transparent;
-	color: #000;
-	border-radius: 3px;
-	padding: 0px 4px;	
-	transition: all 0.5s;
-	 -moz-transition: all 0.5s;
-	 -webkit-transition: all 0.5s;
+	color: slateGray;
+	transition: all 0.25s;
+	 -moz-transition: all 0.25s;
+	 -webkit-transition: all 0.25s;
+	 text-decoration: none;
 }
 
 .post-index tr a:hover{
-	background: #000;
-	color: #FFF;
+	color: #000;
 }
 
 /* Utilities */
@@ -145,6 +144,11 @@ p {
 	font-size: 14px;		
 }
 
+.posts article img{
+	border: 5px solid #FFF;
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
 .posts article .code{
   background-color: #333;
   padding: 10px;
@@ -195,7 +199,7 @@ height: 100%;
 min-height: 100%;
 height: auto !important;
 height: 100%;
-margin: 0 auto -30px;
+margin: 0 auto -30px 10px;
 }
 
 .footer, .push {

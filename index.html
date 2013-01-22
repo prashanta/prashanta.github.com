@@ -1,33 +1,203 @@
----
-layout: default
-overview: true
----
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>code/signal</title>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/grid.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/pygments.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <script src="/js/modernizr-2.5.3.min.js"></script>
+</head>
 
-<section class="intro">
+
+<body>
+	<div class="wrapper">
+  		<header>        
+	<div class="site-header">
+	
+		<div class="site-title">
+			<a href="/">
+				<div  class="site-logo">
+					<img src="/img/cs.png" height="38px">
+				</div>
+				<div  class="site-title-text">
+					code/signal
+				</div>
+			</a>
+		</div>
+		
+		<div class="tagline">
+			experiments, magic blue smoke, bugs
+		</div>
+		
+    </div>
+</header>
+		<section class="intro">
 <div class='post-index'>
 	<table cellpadding="5px">
 	<tr>
 		<td width="30%"></td>
 		<td width="70%"><h4>Posts</h4></td>
 	</tr>	
-  	{% for post in site.posts %}   		
+  	   		
   		<tr>
-    		<td class="align-right"><span>{{ post.date | date: "%B %d, %Y" }}&nbsp;</span></td>
-	    	<td class="align-left"><a href="{{ post.url }}"><b>{{ post.title }}</b></a></td>	    	
+    		<td class="align-right"><span>January 22, 2013&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/arduino-ide-it-was-infatuation"><b>Arduino IDE - It was just an infatuation</b></a></td>	    	
     	</tr>
-    	{% if post.mini %}
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>January 21, 2013&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/got-ethernet-shield"><b>Got myself an ethernet shield</b></a></td>	    	
+    	</tr>
+    	
     	<tr><td></td>
     	<td>
     		<section class="posts">
 		    	<article>
-    				{{ post.content }}
+    				<p>Not the official shield from Arduino, but <a href='http://www.arduino.in.th/product/5/ethernet-wiznet-5100micro-sd-card-shield'>this</a> functions exactly in the same way. It lacks PoE, well I don&#8217;t miss it that much for now. Board quality is pretty nice too.</p>
+<img src='/img/posts/ethernetshield.jpg' width='400px' />
     			</article>	
     		</section>	
     	</td>
     	</tr>
-    	{% endif %}
-  	{% endfor %}
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>January 01, 2013&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/2013-is-here"><b>2013 is here!</b></a></td>	    	
+    	</tr>
+    	
+    	<tr><td></td>
+    	<td>
+    		<section class="posts">
+		    	<article>
+    				<p>Looking forward to a great year ahead, filled with breaking stuffs, turning things off and on again, <code>git commit -m 'Bug Fix'</code>, redundancy continuity tests and mislaying screws. CHEERS!!</p>
+    			</article>	
+    		</section>	
+    	</td>
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>November 28, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/why-ARM-is-shaped-the-way-it-is"><b>Why the ARM architecture is shaped the way it is</b></a></td>	    	
+    	</tr>
+    	
+    	<tr><td></td>
+    	<td>
+    		<section class="posts">
+		    	<article>
+    				<blockquote>
+<h5 id='wilson_concludes_hermann_hauser_says_he_gave_us_the_things_intel_could_never_give_us_no_resources_no_time_and_no_money'>Wilson concludes: &#8220;Hermann Hauser says he gave us the things Intel could never give us, no resources, no time and no money.&#8221;</h5>
+</blockquote>
+
+<p><a href='http://www.eetimes.com/electronics-news/4401986/Why-the-ARM-architecture-is-shaped-the-way-it-is?pageNumber=0'>Read full story</a></p>
+    			</article>	
+    		</section>	
+    	</td>
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>November 27, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/ns-in-nsstring"><b>NS in NSString stands for NeXTSTEP</b></a></td>	    	
+    	</tr>
+    	
+    	<tr><td></td>
+    	<td>
+    		<section class="posts">
+		    	<article>
+    				<p><em>Talk about legacy!</em></p>
+    			</article>	
+    		</section>	
+    	</td>
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>November 26, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/stumbled-upon-bl.ocks.org"><b>Stumbled upon bl.ocks.org</b></a></td>	    	
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>October 13, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/simple-wireless-link-between-Arduino-and-desktop"><b>Simple wireless link between Arduino and a desktop using Bluetooth</b></a></td>	    	
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>October 11, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/arduino-board-as-usb-to-serial-converter"><b>Arduino Board as USB to Serial Converter</b></a></td>	    	
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>October 10, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/10-ways-to-destroy-an-arduino"><b>The folks at Rugged Circuits show 10 ways to destroy an Arduino!</b></a></td>	    	
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>September 10, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/arm-based-rapid-electronics-boards"><b>ARM Based Rapid Electronics Boards Popping Up on Kickstarter</b></a></td>	    	
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>August 30, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/wls-minimalistic-php-web-directory-listing"><b>wls - Minimalistic PHP web directory listing</b></a></td>	    	
+    	</tr>
+    	
+  	   		
+  		<tr>
+    		<td class="align-right"><span>August 30, 2012&nbsp;</span></td>
+	    	<td class="align-left"><a href="/docs/hello-world"><b>Hello World!</b></a></td>	    	
+    	</tr>
+    	
+  	
   	
 	</table>
 </div>
 </section>
+	 	<div class="push"></div>
+	</div>
+	
+	<div class="footer">
+		
+    <div>
+      <span class="align-left">
+      	follow me <a href="http://twitter.com/iprashanta">@iprashanta</a>
+      </span>
+    </div>
+
+
+	</div>
+	
+	
+  <!-- Gauges (http://gaug.es/) -->
+  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '503c5af6613f5d0f19000027');
+      t.src = '//secure.gaug.es/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
