@@ -81,6 +81,10 @@ body > header {
 	color: #000;
 }
 
+.post-index section{
+	margin-top: -30px;
+}
+
 /* Utilities */
 
 .align-left {
@@ -145,8 +149,7 @@ p {
 }
 
 .posts article img{
-	border: 5px solid #FFF;
-	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2	);
 }
 
 .posts article .code{
