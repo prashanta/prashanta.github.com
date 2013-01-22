@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>code/signal</title>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/grid.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/pygments.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <script src="/js/modernizr-2.5.3.min.js"></script>
+</head>
+
+
+<body>
+	<div class="wrapper">
+  		<header>        
+	<div class="site-header">
+	
+		<div class="site-title">
+			<a href="/">
+				<div  class="site-logo">
+					<img src="/img/cs.png" height="38px">
+				</div>
+				<div  class="site-title-text">
+					code/signal
+				</div>
+			</a>
+		</div>
+		
+		<div class="tagline">
+			experiments, magic blue smoke, bugs
+		</div>
+		
+    </div>
+</header>
+		<section class="posts">
+	<div class="content">
+		
+		<div class="section-nav">
+  <div class="left align-right">	
+    
+      <a href="/docs/10-ways-to-destroy-an-arduino" class="prev">
+        Back
+      </a>
+    
+  </div>
+  
+  <div class="right align-left">
+      
+      <a href="/docs/simple-wireless-link-between-Arduino-and-desktop" class="next">
+        Next
+      </a>
+    
+  </div>
+  
+  <div class="clear"></div>
+  
+</div>
+
+
+		
+		<header>
+			<div class="posts-date">October 11, 2012</div>
+			<div class="posts-title">Arduino Board as USB to Serial Converter</div>			
+		</header>
+		
+		<article>    		
+          	<p>With simple hacks the Arduino board (with USB programming interface) can be used as a USB to serial conversion device. There are two methods to do this.</p>
+
+<p><strong>Method uno</strong></p>
+
+<p>When the processor is put to reset mode (shorting Reset and GND pins), the I/O pins are held at tri-state mode. This essentally frees the TX and RX pins, which can now be connected to a USART enabled device for communication via USB. This method works for Uno and other boards that have dedicated USB to serial converstion chip. It does not work with Leonardo, since it uses main processor&#8217;s built-in USB module.</p>
+
+<p><strong>Method dos</strong></p>
+
+<p>This method works for all types of Arduino boards. It involves downloading a relay sort of sketch to the Arduino, which looks like so:</p>
+<div class='code'>
+
+<div class='highlight'><pre><code class='c'><span class='cp'>#include &lt;SoftwareSerial.h&gt;</span>
+
+<span class='n'>SoftwareSerial</span> <span class='n'>mySerial</span> <span class='o'>=</span> <span class='n'>SoftwareSerial</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='mi'>11</span><span class='p'>);;</span> <span class='c1'>// RX, TX</span>
+
+<span class='kt'>void</span> <span class='nf'>setup</span><span class='p'>()</span> <span class='p'>{</span>
+  <span class='n'>pinMode</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span><span class='n'>INPUT</span><span class='p'>);</span>
+  <span class='n'>pinMode</span><span class='p'>(</span><span class='mi'>11</span><span class='p'>,</span><span class='n'>OUTPIT</span><span class='p'>);</span>
+  <span class='n'>mySerial</span><span class='p'>.</span><span class='n'>begin</span><span class='p'>(</span><span class='mi'>19200</span><span class='p'>);</span><span class='c1'>// this connects to the other USART device</span>
+  <span class='n'>Serial</span><span class='p'>.</span><span class='n'>begin</span><span class='p'>(</span><span class='mi'>19200</span><span class='p'>);</span>  <span class='c1'>// this one connects to a computer via USB</span>
+  <span class='k'>while</span> <span class='p'>(</span><span class='o'>!</span><span class='n'>Serial</span><span class='p'>)</span> <span class='p'>{</span>
+    <span class='p'>;</span> <span class='c1'>// wait for serial port to connect. Needed for Leonardo only</span>
+  <span class='p'>}</span>
+<span class='p'>}</span> 
+
+<span class='kt'>void</span> <span class='nf'>loop</span><span class='p'>()</span> <span class='p'>{</span> 
+  <span class='k'>if</span> <span class='p'>(</span><span class='n'>mySerial</span><span class='p'>.</span><span class='n'>available</span><span class='p'>()</span> <span class='o'>&gt;</span> <span class='mi'>0</span><span class='p'>)</span> <span class='p'>{</span>
+    <span class='c1'>// relay everything received from mySerial to Serial    </span>
+    <span class='n'>Serial</span><span class='p'>.</span><span class='n'>write</span><span class='p'>(</span><span class='n'>mySerial</span><span class='p'>.</span><span class='n'>read</span><span class='p'>());</span> 
+  <span class='p'>}</span>
+  <span class='k'>if</span> <span class='p'>(</span><span class='n'>Serial</span><span class='p'>.</span><span class='n'>available</span><span class='p'>()</span> <span class='o'>&gt;</span> <span class='mi'>0</span><span class='p'>)</span> <span class='p'>{</span>
+    <span class='c1'>// relay everything received from Serial to mySerial</span>
+    <span class='n'>mySerial</span><span class='p'>.</span><span class='n'>write</span><span class='p'>(</span><span class='n'>Serial</span><span class='p'>.</span><span class='n'>read</span><span class='p'>());</span>        
+  <span class='p'>}</span>  
+<span class='p'>}</span> 
+</code></pre></div>
+
+</div>
+<p>Leonardo has an added advantage of having two USARTs. Instead of using SoftwareSerial, second USART (Serial1 class) can be used. Thats all folks!</p>          	          	
+        </article>
+        
+			<br><br><hr>
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			var disqus_shortname = 'codeslashsignal'; // required: replace example with your forum shortname
+	
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		            
+        <div class="section-nav">
+  <div class="left align-right">	
+    
+      <a href="/docs/10-ways-to-destroy-an-arduino" class="prev">
+        Back
+      </a>
+    
+  </div>
+  
+  <div class="right align-left">
+      
+      <a href="/docs/simple-wireless-link-between-Arduino-and-desktop" class="next">
+        Next
+      </a>
+    
+  </div>
+  
+  <div class="clear"></div>
+  
+</div>
+
+
+        
+    	<div class="clear"><br><br></div>
+    
+    </div>
+</section>
+
+	 	<div class="push"></div>
+	</div>
+	
+	<div class="footer">
+		
+    <div>
+      <span class="align-left">
+      	follow me <a href="http://twitter.com/iprashanta">@iprashanta</a>
+      </span>
+    </div>
+
+
+	</div>
+	
+	
+  <!-- Gauges (http://gaug.es/) -->
+  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '503c5af6613f5d0f19000027');
+      t.src = '//secure.gaug.es/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
