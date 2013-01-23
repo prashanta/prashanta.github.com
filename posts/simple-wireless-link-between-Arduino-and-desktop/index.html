@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  
+  	<title>code/signal: Simple wireless link between Arduino and a desktop using Bluetooth</title>
+   
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/grid.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/pygments.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="/js/modernizr-2.5.3.min.js"></script>
+<!--  <script src="/js/jquery.sharrre-1.3.4.min.js"></script> 
+  <script src="/js/common.js"></script>  
+-->  
+</head>
+
+
+<body>
+	<div class="wrapper">
+  		<header>        
+	<div class="site-header">
+	
+		<div class="site-title">
+			<a href="/">
+				<div  class="site-logo">
+					<img src="/img/cs.png" height="38px">
+				</div>
+				<div  class="site-title-text">
+					code/signal
+				</div>
+			</a>
+		</div>
+		
+		<div class="tagline">
+			experiments, magic blue smoke, bugs
+		</div>
+		
+    </div>
+</header>
+  		
+		<section class="posts">
+	<div class="content">
+		<div class="section-nav">
+  <div class="left align-right">	
+    
+      <a href="/posts/arduino-board-as-usb-to-serial-converter" class="prev">
+        Previous
+      </a>
+    
+  </div>
+  
+  <div class="right align-left">
+      
+      <a href="/posts/stumbled-upon-bl.ocks.org" class="next">
+        Next
+      </a>
+    
+  </div>
+  
+  <div class="clear"></div>
+  
+</div>
+
+
+		
+		<header>
+			<div class="posts-date">October 13, 2012</div>
+			<div class="posts-title">Simple wireless link between Arduino and a desktop using Bluetooth</div>			
+		</header>
+		
+		<article>    		
+          	<p>Bluetooth modules come really cheap these days, affordable alternatives to Xbee. I got my hands on a BTM-182 from Rayson. Like most Bluetooth modules, it comes with Serial Port Profile. SPP is basically a serial port emulator; in a nut shell - once its paired with a computer, you get a virtual COM port to play with. Try to get the module with a breakout board. Well, I forgot about it and ended up needing to improvise (its not too bad though). Download the datasheet <a href='http://www.sparkfun.com/datasheets/Wireless/Bluetooth/BTM182.pdf'>here</a>.</p>
+<img src='/img/posts/bt-ckt.jpg' />
+<p>It is just going to take four pins to get this module humming. Two of them are power pins: 3.3V and GND. The other two are the familiar TX and RX pins. When power is supplied, BMT initializes. On the computer it will show up as a new bluetooth device under the name &#8220;SerialAdapter&#8221;. It can now be paired with using default pass code, &#8220;1234&#8221;. Once, pairing is done, a virtual COM port should show up in the system hardware.</p>
+
+<p>To check this setup, a software version of loopback test can be performed by downloading this sketch to the Arduino:</p>
+<div class='code'>
+
+<div class='highlight'><pre><code class='c'><span class='cp'>#include &lt;SoftwareSerial.h&gt;</span>
+ 
+<span class='n'>SoftwareSerial</span> <span class='n'>mySerial</span> <span class='o'>=</span> <span class='n'>SoftwareSerial</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='mi'>11</span><span class='p'>);;</span> <span class='c1'>// RX, TX</span>
+ 
+<span class='kt'>void</span> <span class='nf'>setup</span><span class='p'>()</span> <span class='p'>{</span>
+  <span class='n'>pinMode</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span><span class='n'>INPUT</span><span class='p'>);</span>
+  <span class='n'>pinMode</span><span class='p'>(</span><span class='mi'>11</span><span class='p'>,</span><span class='n'>OUTPIT</span><span class='p'>);</span>
+  <span class='n'>mySerial</span><span class='p'>.</span><span class='n'>begin</span><span class='p'>(</span><span class='mi'>19200</span><span class='p'>);</span><span class='c1'>// this connects to the other USART device</span>
+  <span class='n'>Serial</span><span class='p'>.</span><span class='n'>begin</span><span class='p'>(</span><span class='mi'>19200</span><span class='p'>);</span>  <span class='c1'>// this one connects to a computer via USB</span>
+  <span class='k'>while</span> <span class='p'>(</span><span class='o'>!</span><span class='n'>Serial</span><span class='p'>)</span> <span class='p'>{</span>
+    <span class='p'>;</span> <span class='c1'>// wait for serial port to connect. Needed for Leonardo only</span>
+  <span class='p'>}</span>
+<span class='p'>}</span> 
+ 
+<span class='kt'>void</span> <span class='nf'>loop</span><span class='p'>()</span> <span class='p'>{</span> 
+  <span class='k'>if</span> <span class='p'>(</span><span class='n'>mySerial</span><span class='p'>.</span><span class='n'>available</span><span class='p'>()</span> <span class='o'>&gt;</span> <span class='mi'>0</span><span class='p'>)</span> <span class='p'>{</span>
+    <span class='c1'>// relay everything received from mySerial to Serial    </span>
+    <span class='n'>Serial</span><span class='p'>.</span><span class='n'>write</span><span class='p'>(</span><span class='n'>mySerial</span><span class='p'>.</span><span class='n'>read</span><span class='p'>());</span> 
+  <span class='p'>}</span>
+  <span class='k'>if</span> <span class='p'>(</span><span class='n'>Serial</span><span class='p'>.</span><span class='n'>available</span><span class='p'>()</span> <span class='o'>&gt;</span> <span class='mi'>0</span><span class='p'>)</span> <span class='p'>{</span>
+    <span class='c1'>// relay everything received from Serial to mySerial</span>
+    <span class='n'>mySerial</span><span class='p'>.</span><span class='n'>write</span><span class='p'>(</span><span class='n'>Serial</span><span class='p'>.</span><span class='n'>read</span><span class='p'>());</span>        
+  <span class='p'>}</span>  
+<span class='p'>}</span> 
+</code></pre></div>
+
+</div>
+<p>Basically this sketch sends all data received on RX of USB Serial to TX of Bluetooth Serial and vice versa. The USB COM port is connected with Arduino&#8217;s Serial Monitor and the Bluetooth COM port is connected to a second terminal program, I am using <a href='http://www.w7ay.net/site/Applications/Serial%20Tools/index.html'>SerialTools</a>. Once the connections are established, data sent from one terminal should show up on the other. The TX and RX pins of BTM are connected to pins 10 and 11, utilizing SoftwareSerial library.</p>
+<img src='/img/posts/BMT-180_schem.png' />
+<p>Next, I wanted to change the Bluetooth attributes, specially - device name, passcode and baud rate. To do this, we need to talk with the module using AT commands, its simple enough. <a href='http://www.sparkfun.com/datasheets/Wireless/Bluetooth/SPP%20AT%20command%20set.pdf'>Here</a> is the list of AT Command Set for BMT-182. Firstly the module needs to be switched to command mode by sending +++, it will send back OK as acknowledgement. My favorite command is ATI1, this command lists all current attribute values,</p>
+<div class='code'>
+
+<div class='highlight'><pre><code class='c'><span class='n'>ATI1</span>
+<span class='n'>OK</span>
+<span class='n'>ATC</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>HARDWARE</span> <span class='n'>FLOW</span> <span class='n'>CONTROL</span>
+<span class='n'>ATD</span><span class='o'>=</span><span class='mo'>0000</span><span class='o'>-</span><span class='mo'>00</span><span class='o'>-</span><span class='mo'>000000</span><span class='p'>,</span> <span class='n'>NEVER</span> <span class='n'>SET</span> <span class='n'>BLUETOOTH</span> <span class='n'>ADDRESS</span><span class='err'> </span>
+<span class='n'>ATE</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>ECHO</span> <span class='n'>CHARACTERS</span><span class='err'> </span>
+<span class='n'>ATG</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>ENABLE</span> <span class='n'>ALL</span> <span class='n'>PAGE</span> <span class='n'>AND</span> <span class='n'>INQUIRY</span> <span class='n'>SCAN</span><span class='err'> </span>
+<span class='n'>ATH</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>DISCOVERABLE</span><span class='err'> </span>
+<span class='n'>ATK</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>,</span> <span class='n'>ONE</span> <span class='n'>STOP</span> <span class='n'>BIT</span><span class='err'> </span>
+<span class='n'>ATL</span><span class='o'>=</span><span class='mi'>2</span><span class='p'>,</span> <span class='n'>BAUD</span> <span class='n'>RATE</span> <span class='n'>is</span> <span class='mi'>19200</span><span class='err'> </span>
+<span class='n'>ATM</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>,</span> <span class='n'>NONE</span> <span class='n'>PARITY_BIT</span><span class='err'> </span>
+<span class='n'>ATN</span><span class='o'>=</span><span class='n'>SerialAdapter</span><span class='p'>,</span> <span class='n'>LOCAL</span> <span class='n'>NAME</span><span class='err'> </span>
+<span class='n'>ATO</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>,</span> <span class='n'>ENABLE</span> <span class='n'>AUTO</span> <span class='n'>CONNECTING</span><span class='err'> </span>
+<span class='n'>ATP</span><span class='o'>=</span><span class='mi'>1234</span><span class='p'>,</span> <span class='n'>PIN</span> <span class='n'>CODE</span><span class='err'> </span>
+<span class='n'>ATQ</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>,</span> <span class='n'>SEND</span> <span class='n'>RESULT</span> <span class='n'>CODE</span>
+<span class='n'>ATR</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>SPP</span> <span class='n'>SLAVE</span> <span class='n'>ROLE</span>
+<span class='n'>ATS</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>ENABLE</span> <span class='n'>AUTO</span><span class='o'>-</span><span class='n'>POWERDOWN</span> <span class='n'>OF</span> <span class='n'>RS232</span> <span class='n'>DRIVER</span>
+<span class='n'>ATX</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>ALWAYS</span> <span class='n'>CHECK</span> <span class='err'>&#39;</span><span class='o'>+++</span><span class='err'>&#39;</span>
+</code></pre></div>
+
+</div>
+<p>To set new passcode, <em>ATP=0000</em> ; to change device name, <em>ATN=BTSERIAL</em> ; to change baud rate to 9600, <em>ATL2</em>. So what happens when baud rate is changed on the fly? Well the module will receive gibberish and send back gibberish because now the two parties are communicating at different baud rates. Also since device name has been changed, it needs to re-paired with new passcode.</p>
+
+<p>Bluetooth module are quite robust after pairing is established, leaving the user to focus on data. Mulit-node network can also be made using these BT modules.</p>
+
+<p>Giants: <a href='http://byron76.blogspot.com/'>Byron&#8217;s Blog</a> | <a href='http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html'>Rayson BTM222 &amp; BTM112 Bluetooth modules</a></p>          	          	
+        </article>
+        
+ 		<br>       
+
+	   <div class="social">
+	   		<a href="" data-text="Simple wireless link between Arduino and a desktop using Bluetooth" onClick="MyWindow=window.open('https://twitter.com/intent/tweet?original_referer=http://project.prashanta.me&text=Simple wireless link between Arduino and a desktop using Bluetooth&tw_p=tweetbutton&url=http://project.prashanta.me/posts/simple-wireless-link-between-Arduino-and-desktop','Tweet','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=600,height=300'); return false;" data-count="none"><img src="/img/twitter.png"  alt="Share on twitter" title="Share on twitter"></a>			
+		</div> 
+
+        
+			<br><hr>
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			var disqus_shortname = 'codeslashsignal'; // required: replace example with your forum shortname
+	
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		            
+        <div class="section-nav">
+  <div class="left align-right">	
+    
+      <a href="/posts/arduino-board-as-usb-to-serial-converter" class="prev">
+        Previous
+      </a>
+    
+  </div>
+  
+  <div class="right align-left">
+      
+      <a href="/posts/stumbled-upon-bl.ocks.org" class="next">
+        Next
+      </a>
+    
+  </div>
+  
+  <div class="clear"></div>
+  
+</div>
+
+
+        
+    	<div class="clear"><br><br></div>
+    
+    </div>
+</section>
+
+		
+	 	<div class="push"></div>
+	 	
+	</div>
+	
+	<div class="footer">
+		
+    <div>
+      <span class="align-left">
+      	follow me <a href="http://twitter.com/iprashanta">@iprashanta</a>
+      </span>
+    </div>
+
+
+	</div>
+	
+	
+  <!-- Gauges (http://gaug.es/) -->
+  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '503c5af6613f5d0f19000027');
+      t.src = '//secure.gaug.es/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
