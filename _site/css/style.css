@@ -158,6 +158,10 @@ p {
   border-radius: 5px;
 }
 
+.posts .social a{
+	text-decoration: none;
+	
+}
 .posts hr{
   margin-bottom: 10px;
 }
@@ -203,14 +207,13 @@ height: 100%;
 }
 
 .wrapper {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -30px 10px;
+	min-height: 100%;
+	height: auto !important;	
+	margin: 0 auto -30px 10px;
 }
 
 .footer, .push {
-height: 30px;
+	height: 30px;
 }
 
 .footer{
@@ -224,3 +227,5 @@ height: 30px;
 	margin-left: 10px;
 	line-height: 30px;
 }
+
+

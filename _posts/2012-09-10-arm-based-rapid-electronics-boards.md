@@ -21,6 +21,3 @@ Galago comes with its own libraries, browser based IDE (yes, its the rise of bro
 |~ $30	| **Price**	|$29 |
 
 Projects like these give hobbiest/makers opportunity to migrate from 8-bit to 32-bit processors, with user friendly development environment, at an affordable price. Moreover, these projects are made with open source software and hardware, opening up possibilites to modify them and letting others contribute to the evolution of electronics development. I am quite eager to see how things are going to unfold and the sort of reaction they get from hackers/makers/tinkers. 
-
-Its like the universe is telling me to try them out .... oh yeah!
-

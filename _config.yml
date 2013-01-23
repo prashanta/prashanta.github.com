@@ -1,6 +1,6 @@
 auto: true
 server: true
-permalink: /docs/:categories/:title
+permalink: /posts/:categories/:title
 pygments: true
 future: false
 path: http://project.prashanta.me
