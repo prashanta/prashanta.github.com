@@ -1,0 +1,31 @@
+---
+layout: default
+overview: true
+---
+
+<div class='post-index'>
+	<table cellpadding="10">
+	<tr>
+		<td width="30%"></td>
+		<td width="70%"><h4>Posts</h4></td>
+	</tr>	
+  	{% for post in site.posts %}   		
+  		<tr>
+    		<td class="align-right"><span>{{ post.date | date: "%B %d, %Y" }}&nbsp;</span></td>
+	    	<td class="align-left"><a href="{{ post.url }}"><b>{{ post.title }}</b></a></td>	    	
+    	</tr>
+    	{% if post.mini %}
+    	<tr><td></td>
+    	<td>
+    		<section class="posts">
+		    	<article>
+    				{{ post.content }}
+    			</article>	
+    		</section>	
+    	</td>
+    	</tr>
+    	{% endif %}
+  	{% endfor %}
+  	
+	</table>
+</div>
