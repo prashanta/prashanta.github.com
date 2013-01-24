@@ -131,12 +131,13 @@ p {
 
 .posts-date{
 	font-size: 10px;
-	background-color: #EEE;
+	background-color: #FF0000;
 	display: inline;
 	padding: 2px 2px;
-	border-radius: 2px;
-	color: #000;
+	border-radius: 3px;
+	color: #FFF;
 	margin: 0px;
+	font-weight: bold;
 }
 
 .posts .content{
@@ -219,7 +220,6 @@ height: 100%;
 .footer{
 	background: transparent url(/img/creampaper.png) top left;
 	font-size: 14px;
-	box-shadow: 2px 0px 15px rgba(0,0,0,0.3);
 }
 
 .footer div{
