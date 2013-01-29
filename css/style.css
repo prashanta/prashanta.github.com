@@ -5,7 +5,7 @@ body {
   font-size: 21px;
   font-weight: 300;
   color: #000;
-  background: #FFF;
+  background-color: #FFF;  
 }
 
 /* Header */
@@ -24,15 +24,13 @@ body > header {
 .site-title{
 	display: block;
 	height: 40px;
-	width: 250px;
-	color: #777;
-	letter-spacing: -2px;
+	width: 178px;
+	color: #777;	
 }
-.site-logo{
+.site-title-logo{
 	position: relative;
 	display: inline-block; 
 	vertical-align: middle; 	
-	height: 40px;	
 }
 .site-title-text{
 	position: relative;
@@ -41,6 +39,7 @@ body > header {
 	height: 40px; 
 	color: #000;
 	font-size: 30px;
+	letter-spacing: -2px;
 	line-height: 35px;
 	font-weight: bold;
 }
@@ -48,7 +47,7 @@ body > header {
   display: block;
   font-size: 10px;
   color: #333;
-  width: 250px;
+  width: 178px;
   text-align: center;
 }
 
@@ -58,31 +57,41 @@ body > header {
 	font-size: 12px;
 }
 
-.post-index tr{
+.post-index table tr{
 	list-style: circle;
 	font-size: 14px;
 	padding: 5px;
 }
 
-.post-index tr span{	
+.post-index table tr td:first-child{
+	width: 200px;
+	padding: 10px;
+}
+
+.post-index table tr td:last-child{
+	width: 600px;
+}
+
+.post-index table tr span{	
 	color: #999;
 }
 
-.post-index tr a{
+.post-index tr .post-index-title a,
+.section-nav a{
 	background: transparent;
 	color: slateGray;
+	font-weight: bold;
 	transition: all 0.25s;
-	 -moz-transition: all 0.25s;
-	 -webkit-transition: all 0.25s;
-	 text-decoration: none;
+	text-decoration: none;
 }
 
-.post-index tr a:hover{
+.post-index tr a:hover,
+.section-nav a:hover{
 	color: #000;
 }
 
 .post-index section{
-	margin-top: -30px;
+	margin-top: -5px;
 }
 
 /* Utilities */
@@ -131,7 +140,7 @@ p {
 
 .posts-date{
 	font-size: 10px;
-	background-color: #FF0000;
+	background-color: #FF5E45;
 	display: inline;
 	padding: 2px 2px;
 	border-radius: 3px;
@@ -149,6 +158,11 @@ p {
 	font-size: 14px;		
 }
 
+.posts article p{
+	margin-top: 10px;		
+	margin-bottom: 10px;		
+}
+
 .posts article img{
 	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2	);
 }
@@ -157,6 +171,13 @@ p {
   background-color: #333;
   padding: 10px;
   border-radius: 5px;
+}
+
+.posts .social{
+	padding: 2px 0px;
+	width: 88px;
+	height: 30px;
+        margin: auto;
 }
 
 .posts .social a{
@@ -175,28 +196,28 @@ blockquote {
   font-weight: 500;
 }
 
-.posts article a{
+.posts article a
+{
 	color: black;
 	text-decoration: none;
+	font-weight: normal;
 	transition: all .5s;
-	-moz-transition: all .5s;
-	-webkit-transition: all .5s;
-	background-color: #E0E0E0;
+	background-color: #7FFFDA;
 	border-radius: 3px;
 	padding: 0px 4px;	
 }
 
-.posts article a:hover{
+.posts article a:hover
+{
 	background-color: #333;
 	color: #FFF;	
 }
 
-.section-nav .next{
-	font-size: 12px;
-}
-
-.section-nav .prev{
-	font-size: 12px;
+.section-nav{
+	font-size: 14px;
+	border-top: 1px solid #EEE;
+	border-bottom: 1px solid #EEE;
+	padding: 5px 0px;
 }
 
 * {
@@ -210,7 +231,7 @@ height: 100%;
 .wrapper {
 	min-height: 100%;
 	height: auto !important;	
-	margin: 0 auto -30px 10px;
+	margin: 0 auto -30px auto;
 }
 
 .footer, .push {
@@ -227,5 +248,3 @@ height: 100%;
 	margin-left: 10px;
 	line-height: 30px;
 }
-
-

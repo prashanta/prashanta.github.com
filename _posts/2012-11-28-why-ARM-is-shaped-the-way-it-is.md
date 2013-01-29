@@ -1,5 +1,5 @@
 ---
-layout: docs
+layout: post
 title: Why the ARM architecture is shaped the way it is
 comments: false
 mini: true

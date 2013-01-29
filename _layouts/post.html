@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<section class="posts">
+	<div class="content">
+		<header>
+			<div class="posts-date">{{ page.date | date: "%B %d, %Y" }}</div>
+			<div class="posts-title">{{ page.title }}</div>			
+		</header>
+		<br>
+		<article>    		
+          	{{ content }}          	          	
+        </article>
+        
+ 		<br>       
+ 		
+ 		{% if page.social %}
+			<div class="social">
+				<div id="shareme" data-url="{{site.path}}{{page.url}}" data-text="{{page.title}}"></div>
+			</div>	
+		{% endif %}
+				
+		{% if page.nonav %}		
+		
+		{% else %}
+			{% include section_nav.html %}
+		{% endif %}			
+		
+        {% if page.comments %}
+			{% include comment.html %}
+		{% endif %}                           
+    </div>
+</section>

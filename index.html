@@ -4,15 +4,15 @@ overview: true
 ---
 
 <div class='post-index'>
-	<table cellpadding="10">
+	<table>
 	<tr>
-		<td width="30%"></td>
-		<td width="70%"><h4>Posts</h4></td>
+		<td></td>
+		<td><h4>Posts</h4></td>
 	</tr>	
   	{% for post in site.posts %}   		
   		<tr>
     		<td class="align-right"><span>{{ post.date | date: "%B %d, %Y" }}&nbsp;</span></td>
-	    	<td class="align-left"><a href="{{ post.url }}"><b>{{ post.title }}</b></a></td>	    	
+	    	<td class="align-left post-index-title"><a href="{{ post.url }}">{{ post.title }}</a></td>	    	
     	</tr>
     	{% if post.mini %}
     	<tr><td></td>

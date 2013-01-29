@@ -1,7 +1,8 @@
 ---
-layout: docs
+layout: post
 title: ARM Based Rapid Electronics Boards Popping Up on Kickstarter
 comments: true
+social: true
 ---
 Recently spotted two 32-bit ARM based rapid electronic prototyping boards on Kickstarter. Yes, they can live right on your breadboard! Meet Teensy 3.0 and Galago.
 

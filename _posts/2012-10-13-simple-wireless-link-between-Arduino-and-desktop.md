@@ -1,7 +1,8 @@
 ---
-layout: docs
+layout: post
 title: Simple wireless link between Arduino and a desktop using Bluetooth
 comments: true
+social: true
 ---
 Bluetooth modules come really cheap these days, affordable alternatives to Xbee. I got my hands on a BTM-182 from Rayson. Like most Bluetooth modules, it comes with Serial Port Profile. SPP is basically a serial port emulator; in a nut shell - once its paired with a computer, you get a virtual COM port to play with. Try to get the module with a breakout board. Well, I forgot about it and ended up needing to improvise (its not too bad though). Download the datasheet [here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/BTM182.pdf).
 
@@ -74,4 +75,4 @@ To set new passcode, _ATP=0000_ ; to change device name, _ATN=BTSERIAL_ ; to cha
 
 Bluetooth module are quite robust after pairing is established, leaving the user to focus on data. Mulit-node network can also be made using these BT modules.
 
-Giants: [Byron's Blog](http://byron76.blogspot.com/) | [Rayson BTM222 & BTM112 Bluetooth modules](http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html)
+More info here: [Byron's Blog](http://byron76.blogspot.com/) | [Rayson BTM222 & BTM112 Bluetooth modules](http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html)

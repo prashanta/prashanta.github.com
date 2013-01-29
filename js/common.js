@@ -1,30 +1,33 @@
 /* Do some stuffs after page loads
 */
 $(document).ready(function(){	
+
 	$('#shareme').sharrre({
-	  share: {
-	    googlePlus: false,
-	    facebook: true,
-	    twitter: true,
-	    digg: false,
-	    delicious: false,
-	    stumbleupon: false,
-	    linkedin: false,
-	    pinterest: false
-	  },
-	  buttons: {
-	    googlePlus: {count: 'horizontal'},
-	    facebook: {count: 'horizontal'},
-	    twitter: {count: 'horizontal'},
-	    digg: {type: 'DiggMedium'},
-	    delicious: {size: 'tall'},
-	    stumbleupon: {layout: '5'},
-	    linkedin: {counter: 'top'},
-	    pinterest: {media: 'http://sharrre.com/img/example1.png', description: $('#shareme').data('text'), layout: 'vertical'}
-	  },
-	  enableHover: false,
-	  enableCounter: false,
-	  enableTracking: true
+		share: {
+	    	twitter: true,
+		    facebook: true,
+		    googlePlus: true
+		},
+		template: 	'<div class="box">'+
+						'<div class="middle">'+					
+							'<a href="#" class="facebook" title="Share on Facebook"><img src="../../img/facebook.png"></a>&nbsp;&nbsp;'+							
+							'<a href="#" class="twitter" title="Share on Twitter"><img src="../../img/twitter.png"></a>&nbsp;&nbsp;'+
+							'<a href="#" class="googleplus" title="Share on Google+"><img src="../../img/google.png"></a>&nbsp;&nbsp;'+			
+						'</div>'+						
+					'</div>',
+		enableHover: false,
+		enableTracking: true,
+		render: function(api, options){
+			$(api.element).on('click', '.twitter', function() {
+				api.openPopup('twitter');
+			});
+			$(api.element).on('click', '.facebook', function() {
+				api.openPopup('facebook');
+			});
+			$(api.element).on('click', '.googleplus', function() {
+				api.openPopup('googlePlus');
+			});
+		}
 	});
 });		
 

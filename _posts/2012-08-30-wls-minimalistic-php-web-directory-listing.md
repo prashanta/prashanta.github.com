@@ -1,7 +1,8 @@
 ---
-layout: docs
+layout: post
 title: wls - Minimalistic PHP web directory listing
 comments: true
+social: true
 ---
 
 This is something I wrote a while back.

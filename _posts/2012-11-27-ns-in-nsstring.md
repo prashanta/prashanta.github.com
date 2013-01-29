@@ -1,5 +1,5 @@
 ---
-layout: docs
+layout: post
 title: NS in NSString stands for NeXTSTEP
 comments: false
 mini: true	

@@ -1,7 +1,8 @@
 ---
-layout: docs
+layout: post
 title: Arduino Board as USB to Serial Converter
 comments: true
+social: true
 ---
 With simple hacks the Arduino board (with USB programming interface) can be used as a USB to serial conversion device. There are two methods to do this.
 
