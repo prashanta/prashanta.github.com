@@ -12,6 +12,15 @@
 	{% include footer.html %}	
 
 	{% include analytics.html %}
-
+	
+    {% if page.title %}
+    	
+    {% else %}			
+		<div class="github-fork-ribbon-wrapper right">
+	        <div class="github-fork-ribbon">
+	            <a href="https://github.com/prashanta/prashanta.github.com">Fork me on GitHub</a>
+	        </div>
+	    </div>
+    {% endif %} 	
 </body>
 </html>
