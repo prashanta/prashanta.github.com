@@ -1,6 +1,7 @@
 auto: true
 server: true
 permalink: /posts/:categories/:title
+markdown: rdiscount
 pygments: true
 future: false
 path: http://cs.prashanta.me

@@ -159,6 +159,7 @@ p {
 }
 
 .posts article p{
+	font-size: 14px;		
 	margin-top: 10px;		
 	margin-bottom: 10px;		
 }
@@ -247,4 +248,11 @@ height: 100%;
 	height: 30px;
 	margin-left: 10px;
 	line-height: 30px;
+}
+
+.error{
+	font-size: 18px;
+	width: 300px;
+	margin: auto;
+	margin-top: 150px;
 }

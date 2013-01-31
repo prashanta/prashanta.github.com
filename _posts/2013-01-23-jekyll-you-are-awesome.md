@@ -17,8 +17,12 @@ __Why I love Jekyll?__
 
 - Since posts are just text files, you can write them on any text editor. I use TextMate to write mine. No need to rely on web based WYSIWYG editors and the perils that come with them. 
 
-- Deploying is as easy as copying the generated site to a web server. As for me, I have hosted this blog on Github Pages. All source files along with the raw post in text files are pushed to Github repository, which then runs Jekyll in background and generates the blog ready to be consumed. This means any change I make on the blog can be <code>git push</code>ed to said repository, thats it. Check out my blog source [here](http://github.com/prashanta/prashanta.github.com) 
+- Deploying is as easy as copying the generated site to a web server. As for me, I have hosted this blog on Github Pages. All source files along with the raw post in text files are pushed to Github repository, which then runs Jekyll in background and generates the blog ready to be consumed. This means any change I make on the blog can be <code>git push</code>ed to said repository, thats it. 
 
+Fork this blog site on Github:
+
+<iframe src="http://ghbtns.com/github-btn.html?user=prashanta&repo=prashanta.github.com&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe> 
+		
 Read through [Tom Preston-Werner](http://tom.preston-werner.com/)'s post, [Blogging like a hacker](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html) to learn about how Jekyll got started.
 
 
