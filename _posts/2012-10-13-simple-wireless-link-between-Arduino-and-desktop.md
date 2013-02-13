@@ -6,7 +6,7 @@ social: true
 ---
 Bluetooth modules come really cheap these days, affordable alternatives to Xbee. I got my hands on a BTM-182 from Rayson. Like most Bluetooth modules, it comes with Serial Port Profile. SPP is basically a serial port emulator; in a nut shell - once its paired with a computer, you get a virtual COM port to play with. Try to get the module with a breakout board. Well, I forgot about it and ended up needing to improvise (its not too bad though). Download the datasheet [here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/BTM182.pdf).
 
-<img src="{{site.url}}/img/posts/bt-ckt.jpg" />
+<center><img src="{{ site.url }}/img/posts/bt-ckt.jpg"/></center>
 
 It is just going to take four pins to get this module humming. Two of them are power pins: 3.3V and GND. The other two are the familiar TX and RX pins. When power is supplied, BMT initializes. On the computer it will show up as a new bluetooth device under the name "SerialAdapter". It can now be paired with using default pass code, "1234". Once, pairing is done, a virtual COM port should show up in the system hardware.
 
@@ -45,7 +45,7 @@ void loop() {
 
 Basically this sketch sends all data received on RX of USB Serial to TX of Bluetooth Serial and vice versa. The USB COM port is connected with Arduino's Serial Monitor and the Bluetooth COM port is connected to a second terminal program, I am using [SerialTools](http://www.w7ay.net/site/Applications/Serial%20Tools/index.html). Once the connections are established, data sent from one terminal should show up on the other. The TX and RX pins of BTM are connected to pins 10 and 11, utilizing SoftwareSerial library.
 
-<img src="{{site.url}}/img/posts/BMT-180_schem.png" />
+<center><img src="{{ site.url }}/img/posts/BMT-180_schem.png" /></center>
 
 Next, I wanted to change the Bluetooth attributes, specially - device name, passcode and baud rate. To do this, we need to talk with the module using AT commands, its simple enough. [Here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/SPP%20AT%20command%20set.pdf) is the list of AT Command Set for BMT-182. Firstly the module needs to be switched to command mode by sending +++, it will send back OK as acknowledgement. My favorite command is ATI1, this command lists all current attribute values,
 

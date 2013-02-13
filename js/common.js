@@ -10,9 +10,9 @@ $(document).ready(function(){
 		},
 		template: 	'<div class="box">'+
 						'<div class="middle">'+					
-							'<a href="#" class="facebook" title="Share on Facebook"><img src="../../img/facebook.png"></a>&nbsp;&nbsp;'+							
-							'<a href="#" class="twitter" title="Share on Twitter"><img src="../../img/twitter.png"></a>&nbsp;&nbsp;'+
-							'<a href="#" class="googleplus" title="Share on Google+"><img src="../../img/google.png"></a>&nbsp;&nbsp;'+			
+							'<a href="#" class="facebook" title="Share on Facebook"><img src="../../img/facebook-gray.png"></a>&nbsp;&nbsp;'+							
+							'<a href="#" class="twitter" title="Share on Twitter"><img src="../../img/twitter-gray.png"></a>&nbsp;&nbsp;'+
+							'<a href="#" class="googleplus" title="Share on Google+"><img src="../../img/google-gray.png"></a>&nbsp;&nbsp;'+			
 						'</div>'+						
 					'</div>',
 		enableHover: false,

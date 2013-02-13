@@ -66,14 +66,14 @@ body > header {
 .post-index table tr td:first-child{
 	width: 200px;
 	padding: 10px;
+	color: #333;
+	font-size: 12px;
+	vertical-align: top;
 }
 
 .post-index table tr td:last-child{
 	width: 600px;
-}
-
-.post-index table tr span{	
-	color: #999;
+	padding: 9px;
 }
 
 .post-index tr .post-index-title a,
@@ -90,8 +90,12 @@ body > header {
 	color: #000;
 }
 
-.post-index section{
-	margin-top: -5px;
+.post-index blockquote {
+  border-left: 1px solid #777;
+  padding-left: 20px;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* Utilities */
@@ -136,6 +140,7 @@ p {
 .posts-title{
 	font-size: 18px;		
 	font-weight: bold;
+	margin-top: 10px;
 }
 
 .posts-date{
@@ -165,7 +170,7 @@ p {
 }
 
 .posts article img{
-	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2	);
+	
 }
 
 .posts article .code{
@@ -197,21 +202,32 @@ blockquote {
   font-weight: 500;
 }
 
-.posts article a
+.posts article a,
+.post-index article a
 {
-	color: black;
+	color: #fff;
 	text-decoration: none;
 	font-weight: normal;
-	transition: all .5s;
-	background-color: #7FFFDA;
-	border-radius: 3px;
-	padding: 0px 4px;	
+	background-color: #5DB9C2;
+	border-radius: 2px;
+	padding: 0px 2px 3px 2px;	
 }
 
-.posts article a:hover
+.posts article a:hover,
+.post-index article a:hover
 {
 	background-color: #333;
 	color: #FFF;	
+}
+
+.posts article a img 
+{
+	background-color: transparent;
+}
+
+.posts article  img a : hover
+{
+	background-color: transparent;
 }
 
 .section-nav{
@@ -219,6 +235,10 @@ blockquote {
 	border-top: 1px solid #EEE;
 	border-bottom: 1px solid #EEE;
 	padding: 5px 0px;
+}
+
+.section-comment{
+	margin-top: 10px;
 }
 
 * {

@@ -7,7 +7,7 @@ social: true
 
 This is something I wrote a while back.
 
-<img src="{{ site.url }}/img/posts/wls.png" style="width: 800px;"/>
+<center><img src="{{ site.url }}/img/posts/wls.png" style="width: 800px;"/></center>
 
 v1.0 Features:
 

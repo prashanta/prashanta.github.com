@@ -6,7 +6,11 @@ layout: default
 	<div class="content">
 		<header>
 			<div class="posts-date">{{ page.date | date: "%B %d, %Y" }}</div>
-			<div class="posts-title">{{ page.title }}</div>			
+			{% if page.titlelink %}
+				<div class="posts-title"><a href="{{ page.titlelink }}">{{ page.title }}</a></div>			
+			{% else %}
+				<div class="posts-title">{{ page.title }}</div>				
+			{% endif %}
 		</header>
 		
 		<article>    		
