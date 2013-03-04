@@ -2,59 +2,65 @@
 
 body {
   font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 21px;
   font-weight: 300;
   color: #000;
   background-color: #FFF;  
+  background-image: url(http://subtlepatterns.com/patterns/bedge_grunge.png):
 }
 
 /* Header */
 
-body > header {
-  padding: 10px 0 12px 0px;
+body header{
+	background-color: #F9F9F9;	
+	border-bottom: 1px dotted #DDD;
 }
 
-
 .site-header{
-	border-bottom: 1px dotted #DDD;
-	border-bottom-style: dotted;
-	padding-bottom: 5px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .site-title{
 	display: block;
 	height: 40px;
-	width: 178px;
+	width: 200px;
 	color: #777;	
 }
+
+.site-title a{
+	text-decoration: none;
+	color: #333;
+}
+
 .site-title-logo{
 	position: relative;
-	display: inline-block; 
-	vertical-align: middle; 	
+	display: inline-block;
+	width: 38px;
+	height: 38px;
+	background-repeat: no-repeat;	
 }
+
 .site-title-text{
 	position: relative;
-	display: inline-block; 
-	vertical-align: middle; 	
-	height: 40px; 
-	color: #000;
-	font-size: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	height: 28px;
+	font-size: 28px;
 	letter-spacing: -2px;
-	line-height: 35px;
 	font-weight: bold;
 }
+
 .tagline{
   display: block;
   font-size: 10px;
   color: #333;
-  width: 178px;
+  width: 170px;
+  height: 20px;
   text-align: center;
 }
 
 .post-index{
 	width: 800px;
-	margin: 0px 50px;
-	font-size: 12px;
 }
 
 .post-index table tr{
@@ -67,27 +73,30 @@ body > header {
 	width: 200px;
 	padding: 10px;
 	color: #333;
-	font-size: 12px;
 	vertical-align: top;
 }
 
 .post-index table tr td:last-child{
 	width: 600px;
-	padding: 9px;
+	padding: 10px;
+}
+
+.post-index section{
+	margin-top: 10px;
 }
 
 .post-index tr .post-index-title a,
 .section-nav a{
 	background: transparent;
-	color: slateGray;
-	font-weight: bold;
+	color: #000;
 	transition: all 0.25s;
 	text-decoration: none;
+	font-weight: 500;
 }
 
 .post-index tr a:hover,
 .section-nav a:hover{
-	color: #000;
+	color: #990000;
 }
 
 .post-index blockquote {
@@ -137,60 +146,87 @@ p {
 	
 }
 
-.posts-title{
-	font-size: 18px;		
-	font-weight: bold;
-	margin-top: 10px;
+.post-title{
+	position: relative;
+	display: inline-block;
+	font-size: 28px;
+	width: 788px;
+	padding-left: 5px;
+	font-weight: 500;
+	vertical-align: bottom;
 }
-
-.posts-date{
-	font-size: 10px;
-	background-color: #FF5E45;
-	display: inline;
-	padding: 2px 2px;
-	border-radius: 3px;
-	color: #FFF;
-	margin: 0px;
-	font-weight: bold;
-}
-
-.posts .content{
+.post .content{
 	width:  800px;		
-	margin-left: 100px;
+	margin-left: 200px;
 }
 
-.posts article{
-	font-size: 14px;		
+.post-date{
+	position: relative;
+	display: block;
+	font-size: 14px;
+	color: #333;
+	margin-left: -220px;
+	text-align: right;
+	width: 200px;
+	height: 20px;
+	line-height: 20px;
+	padding: 10px;
+	border-right: 1px dotted rgba(0,0,0,0.1);
 }
 
-.posts article p{
+.post .article{
+	font-size: 14px;
+	padding-left: 10px;
+	margin-top: -40px;
+}
+
+.post .article p{
 	font-size: 14px;		
 	margin-top: 10px;		
 	margin-bottom: 10px;		
 }
 
-.posts article img{
+.post .article img{
 	
 }
 
-.posts article .code{
-  background-color: #333;
-  padding: 10px;
-  border-radius: 5px;
+.post .article code{
+	margin: 0 2px;
+	padding: 0px 5px;
+	border-radius: 3px;
+	border: 1px solid #eaeaea;
+	font-size: 12px;
+	font-family: Consolas, "Liberation Mono", Courier, monospace;
+	color: #d14;
+	background-color: #f7f7f9;
 }
 
-.posts .social{
+.post .article .highlight code{
+	margin: 0;
+	padding: 0;
+	border-radius: 0px;
+	border: 1px solid transparent;
+	background-color: transparent;
+}
+
+.highlight{
+  background-color: rgba(12,30,39,0.9);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.post .social{
 	padding: 2px 0px;
 	width: 88px;
 	height: 30px;
         margin: auto;
 }
 
-.posts .social a{
+.post .social a{
 	text-decoration: none;
 	
 }
-.posts hr{
+.post hr{
   margin-bottom: 10px;
 }
 
@@ -202,47 +238,43 @@ blockquote {
   font-weight: 500;
 }
 
-.posts article a,
+.post .article a,
 .post-index article a
 {
 	color: #fff;
 	text-decoration: none;
-	font-weight: normal;
-	background-color: #5DB9C2;
+	background-color: #888;
 	border-radius: 2px;
-	padding: 0px 2px 3px 2px;	
+	padding: 0px 3px;
+	font-size: 13px;
 }
 
-.posts article a:hover,
+.post .article a:hover,
 .post-index article a:hover
 {
-	background-color: #333;
+	background-color: #000;
 	color: #FFF;	
 }
 
-.posts article a img 
+.post .article a img 
 {
 	background-color: transparent;
 }
 
-.posts article  img a : hover
+.post .article  img a : hover
 {
 	background-color: transparent;
 }
 
 .section-nav{
 	font-size: 14px;
-	border-top: 1px solid #EEE;
-	border-bottom: 1px solid #EEE;
+	border-top: 1px dotted rgba(0,0,0,0.2);
+	border-bottom: 1px dotted rgba(0,0,0,0.2);
 	padding: 5px 0px;
 }
 
 .section-comment{
 	margin-top: 10px;
-}
-
-* {
-margin: 0;
 }
 
 html, body {
@@ -255,13 +287,26 @@ height: 100%;
 	margin: 0 auto -30px auto;
 }
 
+* {
+	margin: 0px;
+}
+
 .footer, .push {
 	height: 30px;
 }
 
 .footer{
 	background: transparent url(/img/creampaper.png) top left;
-	font-size: 14px;
+	font-size: 12px;
+	box-shadow: inset 0px 0px 1px #333;
+}
+
+.footer .hosted a{
+	text-decoration: none;
+	color: #FA3212;
+	background-color: #444;
+	border-radius: 10px;
+	padding: 0px 5px;
 }
 
 .footer div{

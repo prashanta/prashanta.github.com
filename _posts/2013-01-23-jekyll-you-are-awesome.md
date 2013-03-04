@@ -11,13 +11,13 @@ Well, it is a static blog site generator. Give it a set of templating rules and 
 
 __Why I love Jekyll?__
 
-- It gives me the flexibility to layout my blog site the way I want it to look. I can enable/disable social sharing, commenting section for individual posts. I can even choose which post will have its content appear on the index page, and which ones don't. Its massively flexible in a convenient way.
+- It gives me the flexibility to layout my blog site the way I want it to look. I can enable/disable social sharing, commenting section for individual posts. I can even choose which post will have its content appear on the index page, and which ones don't. It's massively flexible in a convenient way.
 
 - The blog site it generates is static, which means no database calls, which means, it is going to load lot faster.
 
 - Since posts are just text files, you can write them on any text editor. I use TextMate to write mine. No need to rely on web based WYSIWYG editors and the perils that come with them. 
 
-- Deploying is as easy as copying the generated site to a web server. As for me, I have hosted this blog on Github Pages. All source files along with the raw post in text files are pushed to Github repository, which then runs Jekyll in background and generates the blog ready to be consumed. This means any change I make on the blog can be <code>git push</code>ed to said repository, thats it. 
+- Deploying is as easy as copying the generated site to a web server. As for me, I have hosted this blog on Github Pages. All source files along with the raw post in text files are pushed to Github repository, which then runs Jekyll in background and generates the blog ready to be consumed. This means any change I make on the blog can be <code>git push</code>ed to said repository, that's it. 
 
 Fork this blog site on Github:
 

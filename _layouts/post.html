@@ -1,27 +1,21 @@
 ---
 layout: default
 ---
+{% include header.html %}
 
-<section class="posts">
+<section class="post">
 	<div class="content">
-		<header>
-			<div class="posts-date">{{ page.date | date: "%B %d, %Y" }}</div>
-			{% if page.titlelink %}
-				<div class="posts-title"><a href="{{ page.titlelink }}">{{ page.title }}</a></div>			
-			{% else %}
-				<div class="posts-title">{{ page.title }}</div>				
-			{% endif %}
-		</header>
+		<div class="post-date">{{ page.date | date: "%b  &middot; %d &middot; %Y" }}&nbsp;</div>			
 		
-		<article>    		
+		<div class="article">    		
           	{{ content }}          	          	
-        </article>
+		</div>
         
  		<br>       
- 		
+
  		{% if page.social %}
 			<div class="social">
-				<div id="shareme" data-url="{{site.path}}{{page.url}}" data-text="{{page.title}}"></div>
+				<div id="shareme" data-url="{{site.url}}{{page.url}}" data-text="{{page.title}}"></div>
 			</div>	
 		{% endif %}
 				
@@ -34,5 +28,6 @@ layout: default
         {% if page.comments %}
 			{% include comment.html %}
 		{% endif %}                           
+
     </div>
 </section>

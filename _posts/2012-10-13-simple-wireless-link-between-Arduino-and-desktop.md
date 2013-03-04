@@ -47,7 +47,7 @@ Basically this sketch sends all data received on RX of USB Serial to TX of Bluet
 
 <center><img src="{{ site.url }}/img/posts/BMT-180_schem.png" /></center>
 
-Next, I wanted to change the Bluetooth attributes, specially - device name, passcode and baud rate. To do this, we need to talk with the module using AT commands, its simple enough. [Here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/SPP%20AT%20command%20set.pdf) is the list of AT Command Set for BMT-182. Firstly the module needs to be switched to command mode by sending +++, it will send back OK as acknowledgement. My favorite command is ATI1, this command lists all current attribute values,
+Next, I wanted to change the Bluetooth attributes, specially - device name, passcode and baud rate. To do this, we need to talk with the module using AT commands, its simple enough. [Here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/SPP%20AT%20command%20set.pdf) is the list of AT Command Set for BMT-182. Firstly the module needs to be switched to command mode by sending +++, it will send back OK as acknowledgement. My favorite command is `ATI1`, this command lists all current attribute values,
 
 <div class='code'>
 {% highlight c %}
@@ -71,8 +71,8 @@ ATX=1, ALWAYS CHECK '+++'
 {% endhighlight %}
 </div>
 
-To set new passcode, _ATP=0000_ ; to change device name, _ATN=BTSERIAL_ ; to change baud rate to 9600, _ATL2_. So what happens when baud rate is changed on the fly? Well the module will receive gibberish and send back gibberish because now the two parties are communicating at different baud rates. Also since device name has been changed, it needs to re-paired with new passcode.  
+To set new passcode to _0000_ send: `ATP=0000` ; to change device name: `ATN=BTSERIAL` ; to change baud rate to 9600: `ATL2`. So what happens when baud rate is changed on the fly? Well the module will receive gibberish and send back gibberish because now the two parties are communicating at different baud rates. If device name has been changed, it needs to be re-paired.  
 
 Bluetooth module are quite robust after pairing is established, leaving the user to focus on data. Mulit-node network can also be made using these BT modules.
 
-More info here: [Byron's Blog](http://byron76.blogspot.com/) | [Rayson BTM222 & BTM112 Bluetooth modules](http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html)
+More info here: [Byron's Blog](http://byron76.blogspot.com/) | [Rayson BTM222 & BTM112 Bluetooth modules](http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html) | [Technical stuffs on Bluetooth](http://www.cs.tut.fi/kurssit/TLT-6556/Slides/2-Bluetooth.pdf)
