@@ -1,9 +1,9 @@
 ---
-date: 2013-01-23 09:14:00 +0700
+date: 2013-03-15 09:14:00 +0700
 layout: post
 comments: true
 social: true
-title: Interfacing wCK servo with Python. And Arduino.
+title: Interfacing wCK servo with Python & Arduino
 ---
 I have been playing with wCK Servo from [RoboBuilder][1] for a while now. This servo packs quite a punch:
 
@@ -112,9 +112,9 @@ void loop() {
 
 {% endhighlight %}
 </div>
+<br>
 <center><img src="{{ site.url }}/img/posts/wck-arduino.jpg" width="400px"/></center>
  
-
 [1]: http://www.robobuilder.net/eng/
 [2]: http://robosavvy.com/RoboSavvyPages/Robobuilder/robobuilder-creator-users-manual.pdf
 [3]: http://www.robobuilder.net/eng/board/board_down/board_index.asp?cmd=view&page=1&info_ref=17&info_idx=17&w=&k=C&board_type=picture&board_gubun=default&board_name=morgue&title_name=
