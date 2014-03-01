@@ -1,5 +1,5 @@
 ---
-date: 3013-01-22 09:14:00 +0700
+date: 2013-01-22 09:14:00 +0700
 layout: post
 comments: true
 social: true
