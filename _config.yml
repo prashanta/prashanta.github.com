@@ -4,7 +4,6 @@ permalink: /posts/:categories/:title
 markdown: rdiscount
 pygments: true
 future: false
-url: http://cs.prashanta.me/
 title: code/signal
 tagline: experiments, magic blue smoke, bugs
 gauges_id: 503c5af6613f5d0f19000027
