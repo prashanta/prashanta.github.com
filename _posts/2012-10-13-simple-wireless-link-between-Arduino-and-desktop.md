@@ -73,6 +73,6 @@ ATX=1, ALWAYS CHECK '+++'
 
 To set new passcode to _0000_ send: `ATP=0000` ; to change device name: `ATN=BTSERIAL` ; to change baud rate to 9600: `ATL2`. So what happens when baud rate is changed on the fly? Well the module will receive gibberish and send back gibberish because now the two parties are communicating at different baud rates. If device name has been changed, it needs to be re-paired.  
 
-Bluetooth module are quite robust after pairing is established, leaving the user to focus on data. Mulit-node network can also be made using these BT modules.
+Bluetooth module are quite robust after pairing is established, leaving the user to focus on data.
 
 More info here: [Byron's Blog](http://byron76.blogspot.com/) | [Rayson BTM222 & BTM112 Bluetooth modules](http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html) | [Technical stuffs on Bluetooth](http://www.cs.tut.fi/kurssit/TLT-6556/Slides/2-Bluetooth.pdf)
