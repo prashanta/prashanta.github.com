@@ -7,7 +7,7 @@ social: true
 ---
 __What is Jekyll?__
 
-Well, it is a static blog site generator. Give it a set of templating rules and posts written on markdown/textile/html it will spit out an entire blog.
+Jekyll is a static blog site generator. Give it a set of templating rules and posts written on markdown/textile/html it will spit out an entire blog.
 
 __Why I love Jekyll?__
 
