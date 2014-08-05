@@ -6,7 +6,7 @@ comments: true
 social: true
 ---
 
-The scenario - I needed to view/download log files from remote servers on a regular basis. The task of having to SSH to multiple servers just for getting log files was aching for some automation. This led me to Paramiko module, it "implements the SSH2 protocol for secure (encrypted and authenticated) connections to remote machines", bravo! just what I needed. Download Paramiko module [here](http://www.lag.net/paramiko/).
+The scenario - I needed to view/download log files from remote servers on a regular basis. The task of having to SSH to multiple servers to download log files was aching for some automation. This led me to Paramiko module, it "implements the SSH2 protocol for secure (encrypted and authenticated) connections to remote machines", bravo! just what I needed. Download Paramiko module [here](http://www.lag.net/paramiko/).
 
 Guide to installing Python modules [here](http://docs.python.org/install/index.html#install-index).
 
