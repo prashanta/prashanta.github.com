@@ -12,9 +12,9 @@ I have been playing with wCK Servo from [RoboBuilder][1] for a while now. This s
 - Serial interface 
 - Control multiple servos on a multi-drop bus network
 
-Its [user manual][2] is pretty comprehensive, it has everything you will need to know. I am using wCK-1111, it has max power of *1.1 W* and delivers torque of *11 kg.cm*. 
+Its [user manual][2] is pretty comprehensive, it has everything you will need to know to run this bad boy. It comes in different variants, I am using wCK-1111 - it has max power of *1.1 W* and delivers *11 kg.cm* torque. 
 
-Lets first try to get it running via a computer using serial port (or USB-to-Serial converter). Download the official Windows (only) program - [wCK Programmer][3]. This program can be used to configure parameters (ID, baud rate, PID gains) and issue motion commands (move to a position, rotate CW/CCW) to servo. The program itself is self-explanatory. However, since I am on OS X I wanted something native, so here is a small Python script that communicates with the servo - [wck.py][4]. Not all functions of wCK Programmer have been ported but it has the basic stuff.
+Lets first try to get it running via a computer using serial port (or USB-to-Serial converter). Download the official Windows (only) program - [wCK Programmer][3]. This program can be used to configure parameters (ID, baud rate, PID gains) and issue motion commands (move to a position, rotate CW/CCW) to servo. The program itself is self-explanatory. However, since I am on OS X I wanted something native, so here is a small Python script that communicates with the servo - [wck.py][4]. Not all functions of wCK Programmer have been ported but it includes the basic stuff.
 
 Right out of the package, wCK servo will come with following default parameters:
 
