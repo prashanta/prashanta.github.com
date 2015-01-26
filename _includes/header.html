@@ -1,16 +1,17 @@
-<header>        
-	<div class="site-header">			
+<header>
+	<div class="site-header">
 		<div class="site-title">
-			<!--<div  class="site-title-logo" style="background-image: url({{site.url}}/img/cs.png)">&nbsp;</div>	-->
-			<div  class="site-title-text"><a href="/">&nbsp;{{ site.title }}</a></div>			
-		</div>		
-		<div class="tagline">{{ site.tagline }}</div>				
-    </div>	
+			<div  class="site-title-text">
+				<a href="/">{{ site.title }}</a>
+			</div>
+		</div>
+		<div class="tagline">{{ site.tagline }}</div>
+	</div>
 	{% if page.title %}
 		{% if page.titlelink %}
-			<div class="post-title"><a href="{{ page.titlelink }}">{{ page.title }}</a></div>			
+			<div class="post-title"><a href="{{ page.titlelink }}">{{ page.title }}</a></div>
 		{% else %}
-			<div class="post-title">{{ page.title }}</div>				
-		{% endif %}						
-	{% endif %}						
+			<div class="post-title">{{ page.title }}</div>
+		{% endif %}
+	{% endif %}
 </header>

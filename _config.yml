@@ -1,11 +1,10 @@
-auto: true
-server: true
+timezone: Asia/Bangkok
+future: false
 permalink: /posts/:categories/:title
 markdown: rdiscount
-pygments: true
-future: false
-title: code & signal
-tagline: experiments, magic blue smoke, bugs
+highlighter: pygments
+title: prashanta
+tagline: just a blog
 gauges_id: 503c5af6613f5d0f19000027
 url: http://prashanta.github.io/
 paginate: 12
