@@ -5,7 +5,7 @@ body {
 	font-weight: 300;
 	color: #000;
 	background-color: #FFF;	
-	background-image: url(http://subtlepatterns.com/patterns/bedge_grunge.png):
+    font-size: 14px;
 }
 
 /* HEADER */
@@ -17,14 +17,15 @@ body header{
 
 .site-header{
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: middle;
+	margin-left: 10px;
 }
 
 .site-title{
 	display: block;
 	height: 40px;
 	width: 200px;
-	color: #777;
+	color: red;
 }
 
 .site-title a{
@@ -49,6 +50,22 @@ body header{
 	color: #333;
 	width: 170px;
 	height: 20px;
+}
+
+.pagination{
+    margin: 10px 0px 10px 100px;
+}
+
+.pagination a{
+	background: transparent;
+	color: #000;
+	transition: all 0.25s;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.pagination a:hover{
+	color: #990000;
 }
 
 /* POST */
@@ -190,7 +207,7 @@ p {
 	border-radius: 3px;
 	border: 1px solid #eaeaea;
 	font-size: 12px;
-	font-family: Consolas, "Liberation Mono", Courier, monospace;
+	font-family: Menlo, Monaco, "Courier New", monospace;
 	color: #d14;
 	background-color: #f7f7f9;
 }

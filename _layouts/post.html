@@ -5,6 +5,14 @@ layout: default
 
 <section class="post">
 	<div class="content">
+        {% if page.title %}
+            {% if page.titlelink %}
+                <div class="post-title"><a href="{{ page.titlelink }}">{{ page.title }}</a></div>
+            {% else %}
+                <div class="post-title">{{ page.title }}</div>
+            {% endif %}
+        {% endif %}
+        
 		<div class="post-date">{{ page.date | date: "%b  &middot; %d &middot; %Y" }}&nbsp;</div>			
 		
 		<div class="article">    		
@@ -12,13 +20,13 @@ layout: default
 		</div>
         
  		<br>       
-
+        <!--
  		{% if page.social %}
 			<div class="social">
 				<div id="shareme" data-url="{{site.url}}{{page.url}}" data-text="{{page.title}}"></div>
 			</div>	
 		{% endif %}
-				
+        -->
 		{% if page.nonav %}		
 		
 		{% else %}

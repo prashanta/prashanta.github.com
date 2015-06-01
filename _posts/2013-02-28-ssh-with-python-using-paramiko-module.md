@@ -1,12 +1,11 @@
 ---
-date: 2013-02-28 06:20:00 +0700
 title: Automating remote file access through SSH with Python using Paramiko module
 layout: post
 comments: true
 social: true
 ---
 
-The scenario - I needed to view/download log files from remote servers on a regular basis. The task of having to SSH to multiple servers to download log files was aching for some automation. This led me to Paramiko module, it "implements the SSH2 protocol for secure (encrypted and authenticated) connections to remote machines", bravo! just what I needed. Download Paramiko module [here](http://www.lag.net/paramiko/).
+The scenario - I need to view/download log files from remote servers on a regular basis. The task of having to SSH to multiple servers to download log files was aching for some automation. This led me to Paramiko module, it "implements the SSH2 protocol for secure (encrypted and authenticated) connections to remote machines", bravo! just what I needed. Download Paramiko module [here](http://www.lag.net/paramiko/).
 
 Guide to installing Python modules [here](http://docs.python.org/install/index.html#install-index).
 
@@ -50,3 +49,5 @@ ssh.close()
 
 {% endhighlight %}
 </div>
+
+Time saved from having to download log files will be utilized to automate other trivial stuff, perfect!

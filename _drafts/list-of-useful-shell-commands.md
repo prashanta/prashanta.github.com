@@ -1,5 +1,4 @@
 ---
-date: 3013-02-07 09:14:00 +0700
 layout: post
 comments: true
 social: true

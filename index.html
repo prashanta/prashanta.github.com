@@ -10,7 +10,7 @@ overview: true
 		<td></td>
 		<td><h4>Posts</h4></td>
 	</tr>	
-  	{% for post in site.posts %}   		
+        {% for post in paginator.posts %}
   		<tr>
     		<td class="align-right"><span>{{ post.date | date: "%b  &middot; %d &middot; %Y" }}&nbsp;</span></td>
 			<td style="border-top: 1px dotted #CCC;"> 
@@ -36,8 +36,9 @@ overview: true
 		    		</section>
 				{% endif %}				    			
 			</td>	    	
-    	</tr>    	
-  	{% endfor %}
-  	
+    	</tr>    	  	
+        {% endfor %}
 	</table>
 </div>
+
+{% include page_nav.html %}

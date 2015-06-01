@@ -28,7 +28,7 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for Leonardo only
   }
-} 
+}
 
 void loop() { 
   if (mySerial.available() > 0) {
