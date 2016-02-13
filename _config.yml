@@ -7,5 +7,5 @@ tagline: just a blog
 gauges_id: 503c5af6613f5d0f19000027
 url: http://prashanta.github.io/
 gems: [jekyll-paginate]
-paginate: 10
+paginate: 20
 paginate_path: "/blog/page:num/"

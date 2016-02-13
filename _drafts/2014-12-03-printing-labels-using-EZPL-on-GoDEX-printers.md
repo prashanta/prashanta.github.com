@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programming GoDEX Label Printer
+title: (Draft) Programming GoDEX Label Printer
 comments: true
 social: true
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Label printing using EZPL on GoDEX Label Printer
+title: (Draft) Label printing using EZPL on GoDEX Label Printer
 comments: true
 social: true
 ---

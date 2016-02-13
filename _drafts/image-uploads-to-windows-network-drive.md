@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Image Uploads to Windows Network Drive
+title: (Draft) Image Uploads to Windows Network Drive
 comments: true
 social: true
 ---

@@ -11,6 +11,9 @@ body {
 /* HEADER */
 
 body header{
+	position: absolute;
+	top: 0px;
+	left: 0px;
 	background-color: #F9F9F9;
 	border-bottom: 1px dotted #DDD;
 }
@@ -256,7 +259,7 @@ blockquote {
 	text-decoration: none;
 	background-color: #888;
 	border-radius: 2px;
-	padding: 0px 3px;
+	padding: 2px 3px 4px 3px;
 	font-size: 13px;
 }
 
