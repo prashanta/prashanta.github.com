@@ -19,7 +19,7 @@ Let’s try setting up environment variables on Windows OS (I am on Windows 8 bo
 Fire up _cmd.exe_ in administrator mode. The first command we are going to use is [SET](http://ss64.com/nt/set.html). To list the environment variables that have been setup run:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java%}
 D:\>set
 {% endhighlight %}
 </div>
@@ -27,7 +27,7 @@ D:\>set
 This will list all effective environment variables for your user session. To list all variables that start with 'P': 
 
 <div class='code'>
-{% highlight console%}
+{% highlight java%}
 D:\>set P
 {% endhighlight %}
 </div>
@@ -35,7 +35,7 @@ D:\>set P
 There is another way to list the environment variables - using [REG](http://ss64.com/nt/reg.html) command. This will list user variables:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java%}
 D:\>REG QUERY HKEY_CURRENT_USER\Environment
 {% endhighlight %}
 </div>
@@ -43,7 +43,7 @@ D:\>REG QUERY HKEY_CURRENT_USER\Environment
 And this will list system variables:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java %}
 D:\>REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" 
 {% endhighlight %}
 </div>
@@ -53,7 +53,7 @@ D:\>REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manag
 To set a new user variable we need to use the [SETX](http://ss64.com/nt/setx.html) command:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java %}
 D:\>setx myvar1 "Hello Mr. Robot"
 {% endhighlight %}
 </div>
@@ -61,7 +61,7 @@ D:\>setx myvar1 "Hello Mr. Robot"
 To set a new system variable run:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java%}
 D:\>setx myvar2 "Hello Mr.Robot" /m
 {% endhighlight %}
 </div>
@@ -69,7 +69,7 @@ D:\>setx myvar2 "Hello Mr.Robot" /m
 To append values in existing variables:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java%}
 D:\>setx Path "%Path%;C:/maven/bin;"
 {% endhighlight %}
 </div>
@@ -81,7 +81,7 @@ Appending the _Path_ variable is a bit different because _%Path%_ returns the co
 To clear an environment variable, use the following command, this will not delete the variable, just clears it:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java%}
 D:\>setx myvar1 ""
 D:\>setx myvar2 "" /m
 {% endhighlight %}
@@ -90,7 +90,7 @@ D:\>setx myvar2 "" /m
 Unfortunately, there is no cousin command to SETX that can delete environment variables. This has to be done by removing from registry using REG command. Practice caution here - you are about to change registry entries so be careful! Run this command to delete environment variable:
 
 <div class='code'>
-{% highlight console%}
+{% highlight java%}
 D:\>REG DELETE "HKEY_CURRENT_USER\Environment" /v myvar1
 D:\>REG DELETE "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v myvar2
 {% endhighlight %}
