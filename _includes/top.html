@@ -30,7 +30,8 @@
         var distanceY = window.pageYOffset || document.documentElement.scrollTop,
             shrinkOn = 70;
         if (distanceY > shrinkOn) {
-          $('header').addClass('smaller');
+          if(!$('header').hasClass('smaller'))
+            $('header').addClass('smaller');
         } 
         else {
           if($('header').hasClass('smaller'))
