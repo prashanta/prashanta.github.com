@@ -26,7 +26,16 @@
   <script>
     function init(){
       window.addEventListener('scroll', function(){
-        console.log("scrolled : " + window.pageYOffset);
+        
+        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+            shrinkOn = 70;
+        if (distanceY > shrinkOn) {
+          $('header').addClass('smaller');
+        } 
+        else {
+          if($('header').hasClass('smaller'))
+            $('header').removeClass('smaller');        
+        }
       });  
     }
     
