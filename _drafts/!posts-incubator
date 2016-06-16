@@ -1,4 +1,8 @@
-- running a GESBC-9G20u from scratch 
-- panleit - porting LCD to web
-- creating process graph using breakout.js
-- tips on documenting LCD interface - black and white/ gamma correction
+- Java ascension
+- Tips on documenting LCD interface - black and white/ gamma correction
+- Barcode printing using GoDex printer the hard way
+- Running a GESBC-9G20u from scratch
+- Using xlsx.js
+- First impressions from using NodeMCU
+- Panleit - porting LCD to web
+- Creating process graph using breakout.js

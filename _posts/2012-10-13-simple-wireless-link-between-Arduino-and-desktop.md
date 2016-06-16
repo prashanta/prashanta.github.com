@@ -4,9 +4,10 @@ title: Simple wireless link between Arduino and a desktop using Bluetooth
 comments: true
 social: true
 ---
+
+<img src="{{ site.url }}/img/posts/bt-ckt.jpg" style="float: right;"/>
 Bluetooth modules come really cheap these days, affordable alternatives to Xbee. I got my hands on a BTM-182 from Rayson. Like most Bluetooth modules, it comes with Serial Port Profile. SPP is basically a serial port emulator; in a nut shell - once its paired with a computer, you get a virtual COM port to play with. Try to get the module with a breakout board. Well, I forgot about it and ended up needing to improvise (its not too bad though). Download the datasheet [here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/BTM182.pdf).
 
-<center><img src="{{ site.url }}/img/posts/bt-ckt.jpg"/></center>
 
 It is just going to take four pins to get this module humming. Two of them are power pins: 3.3V and GND. The other two are the familiar TX and RX pins. When power is supplied, BMT initializes. On the computer it will show up as a new bluetooth device under the name "SerialAdapter". It can now be paired with using default pass code, "1234". Once, pairing is done, a virtual COM port should show up in the system hardware.
 

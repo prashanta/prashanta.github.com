@@ -5,16 +5,18 @@ comments: true
 social: true
 title: Interfacing wCK servo with Python & Arduino
 ---
-I have been playing with wCK Servo from [RoboBuilder][1] for a while now. This servo packs quite a punch:
+<center><img src="/img/posts/wckservo.jpg" width="400px" style="float: right"/></center>
+
+I have been playing with wCK Servo from <a href="http://www.robobuilder.net/" target="_blank" >RoboBuilder</a> for a while now. This servo packs quite a punch:
 
 - Built-in PID controller
 - I/O pins (1 ADC input, 2 digital output)
 - Serial interface 
 - Control multiple servos on a multi-drop bus network
 
-<center><img src="/img/posts/wck-arduino.jpg" width="400px"/></center>
 
-Its [user manual][2] is pretty comprehensive, it has everything you will need to know to run this bad boy. It comes in different variants, I am using wCK-1111 - it has max power of *1.1 W* and delivers *11 kg.cm* torque. 
+
+Its <a href="http://robosavvy.com/RoboSavvyPages/Robobuilder/robobuilder-creator-users-manual.pdf" target="_blank" >user manual</a> is pretty comprehensive, it has everything you will need to know to run this bad boy. It comes in different variants, I am using wCK-1111 - it has max power of *1.1 W* and delivers *11 kg.cm* torque. 
 
 Lets first try to get it running via a computer using serial port (or USB-to-Serial converter). Download the official Windows (only) program - [wCK Programmer][3]. This program can be used to configure parameters (ID, baud rate, PID gains) and issue motion commands (move to a position, rotate CW/CCW) to servo. The program itself is self-explanatory. However, since I am on OS X I wanted something native, so here is a small Python script that communicates with the servo - [wck.py][4]. Not all functions of wCK Programmer have been ported but it includes the basic stuff.
 
@@ -60,8 +62,8 @@ The last command will stop the servo.
 
 Now lets use Arduino to control this servo. Download [this][5] Arduino wCK servo library. Here is an example sketch:
 
-<div class='code'>
-{% highlight c %}
+<div class='code'> 
+{% highlight c linenos %}
 
 #define SERVO0  0
 Wckservo servo(SERVO0);
@@ -116,8 +118,6 @@ void loop() {
 </div>
 <br>
  
-[1]: http://www.robobuilder.net/eng/
-[2]: http://robosavvy.com/RoboSavvyPages/Robobuilder/robobuilder-creator-users-manual.pdf
 [3]: http://www.robobuilder.net/eng/board/board_down/board_index.asp?cmd=view&page=1&info_ref=17&info_idx=17&w=&k=C&board_type=picture&board_gubun=default&board_name=morgue&title_name=
 [4]: http://github.com/prashanta/wck.py
 [5]: http://github.com/prashanta/wckservo

@@ -6,7 +6,7 @@ social: true
 ---
 Recently spotted two 32-bit ARM based rapid electronic prototyping boards on Kickstarter. Yes, they can live right on your breadboard! Meet Teensy 3.0 and Galago.
 
-<center><img src="http://getfile3.posterous.com/getfile/files.posterous.com/temp-2012-09-11/pcyxGmtoAnpgeyFoFmmmIcEpiIHmygfaCrsFdhtjyGiBoojmwwzfkthtdgjl/teensy.png.scaled500.png" /></center>
+<center><img src="https://www.pjrc.com/store/teensy31.jpg" width="200px" /></center>
 
 Teensy is designed to be compatible with Arduino. It comes with a bootloader hosted on a separate chip (all Flash memory for user program); an add-on for Arduino IDE called Teensyduino with support for common Arduino functions and popular Arduino libraries ported to Teensy.
 
