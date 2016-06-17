@@ -1,34 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8" />
-   <title>{{ title }}</title>
-   <meta name="description" content="{{ description }}">
-   <link href="/styles/style.css" media="all" rel="stylesheet" type="text/css"/>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
 </head>
 <body>
-   {{> header}}
-   <div class='post-index'>
-      <table>
-         <tr>
-            <td></td>
-            <td><h4>Posts</h4></td>
-         </tr>
-         {{#each collections.posts }}
-         <tr>
-            <td class="align-right"><span>{{ this.date }}&nbsp;</span></td>
-            <td style="border-top: 1px dotted #CCC;">
-               <div class="align-left post-index-title">
-                  <a href="{{ this.path }}">{{ this.title }}</a>
-               </div>
-               {{#if this.excerpt}}
-               {{ this.excerpt}}
-               {{/if}}
-            </td>
-         </tr>
-         {{/each}}
-      </table>
-   </div>
-   {{>livereload}}
+  <h1>{{ title }}</h1>
+  <p>{{ description }}</p>
+  <a href="/blog"><h1> Blog </h1></a>
+  <h1> About </h1>
+  <h1> Projects </h1>
+
+  {{{ contents }}}
+
 </body>
 </html>

@@ -5,23 +5,32 @@
    <title>{{ title }}</title>
    <meta name="description" content="{{ description }}">
    <link href="/styles/style.css" media="all" rel="stylesheet" type="text/css"/>
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/default.min.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
 </head>
 <body>
    {{>header}}
-   <time>{{ date }}</time>
-   <h2>{{ title }}</h2>
 
+   <section class="post">
+   	<div class="content">
+         <div class="post-title">{{ title }}</div>
 
-   {{{ contents }}}
+         <div class="post-date">{{ date }}</div>
 
+         <div class="article">
+            {{{ contents }}}
+         </div>
+      </div>
 
-   {{#if this.previous}}
-   Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
-   {{/if}}
+      {{#if this.previous}}
+      Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
+      {{/if}}
 
-   {{#if this.next}}
-   Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
-   {{/if}}
+      {{#if this.next}}
+      Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
+      {{/if}}
+
+   </section>
 
    {{>livereload}}
 </body>

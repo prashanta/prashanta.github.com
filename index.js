@@ -3,6 +3,8 @@ var markdown    = require('metalsmith-markdown');
 var collections    = require('metalsmith-collections');
 var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
+var metallic = require('metalsmith-metallic');
+
 
 var test  = require('./plugins/test');
 
@@ -17,12 +19,13 @@ Metalsmith(__dirname)
 .use(test())
 .use(collections({
    posts: {
-      pattern: 'posts/*.md',
+      pattern: 'blog/posts/*.md',
       sortBy: 'date',
       reverse: true
    }
 }))
 .use(markdown())
+.use(metallic())
 .use(permalinks())
 .use(layouts({
    engine: 'handlebars',
