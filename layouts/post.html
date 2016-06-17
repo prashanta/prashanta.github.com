@@ -8,16 +8,21 @@
 </head>
 <body>
    {{>header}}
-   <h1>{{ title }}</h1>
    <time>{{ date }}</time>
+   <h2>{{ title }}</h2>
+
+
    {{{ contents }}}
 
+
    {{#if this.previous}}
-   Next: <a href='/{{this.previous.path}}'>{{this.previous.title}}</a>
+   Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
    {{/if}}
 
    {{#if this.next}}
-   Previous: <a href='/{{this.next.path}}'>{{this.next.title}}</a>
+   Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
    {{/if}}
+
+   {{>livereload}}
 </body>
 </html>

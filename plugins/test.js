@@ -1,6 +1,7 @@
 /**
  * Expose `plugin`.
  */
+var Handlebars  = require('handlebars');
 
 module.exports = plugin;
 
@@ -12,7 +13,8 @@ module.exports = plugin;
 
 function plugin(){
   return function(opts){
-       console.log(opts);
-
+       Handlebars.registerHelper('link', function(path) {
+           return '/' + path;
+       });
   };
 }

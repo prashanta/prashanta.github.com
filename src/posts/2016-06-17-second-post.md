@@ -1,5 +1,5 @@
 ---
-title: My Second Post
+title: Getting around restrictions
 date: 2016-06-16
 layout: post.html
 ---
