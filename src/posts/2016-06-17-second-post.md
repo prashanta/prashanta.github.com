@@ -1,5 +1,5 @@
 ---
-title: Hello World
+title: My Second Post
 date: 2016-06-16
 layout: post.html
 ---

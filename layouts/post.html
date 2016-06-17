@@ -1,20 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
+   <meta charset="UTF-8" />
+   <title>{{ title }}</title>
+   <meta name="description" content="{{ description }}">
+   <link href="/styles/style.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-  <header>
-    <p>
-      <a href="/">Home</a>
-    </p>
+   {{>header}}
+   <h1>{{ title }}</h1>
+   <time>{{ date }}</time>
+   {{{ contents }}}
 
-  </header>
-  <h1>{{ title }}</h1>
-  <time>{{ date }}</time>
-  {{{ contents }}}
+   {{#if this.previous}}
+   Next: <a href='/{{this.previous.path}}'>{{this.previous.title}}</a>
+   {{/if}}
 
+   {{#if this.next}}
+   Previous: <a href='/{{this.next.path}}'>{{this.next.title}}</a>
+   {{/if}}
 </body>
 </html>

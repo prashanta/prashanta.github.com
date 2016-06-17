@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link href="/styles/style.css" media="all" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  {{> header}}
+
+  {{#each collections.posts }}
+    <li>
+           <a href={{this.path }}><h2 class="post-title entry-title">
+                {{ this.title }}
+            </h2></a>
+            <h3>{{this.date }}</h3>
+            {{#if this.excerpt}}
+               {{ this.excerpt}}
+            {{/if}}
+    </li>
+    {{/each}}
+</body>
+</html>

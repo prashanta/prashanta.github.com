@@ -1,0 +1,19 @@
+body{
+   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+   margin: 0px;
+}
+
+.title_container{
+   background-color: #e5cdcd;
+}
+
+.title_container a{
+   color: #000;
+   text-decoration: none;
+}
+
+.main_title{
+   font-weight: bold;
+   font-size: 36px;
+   letter-spacing: -3px;
+}

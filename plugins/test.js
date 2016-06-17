@@ -11,10 +11,8 @@ module.exports = plugin;
  */
 
 function plugin(){
-  return function(files){
-    for (var file in files) {
-      //if (files[file].draft) delete files[file];
-      console.log(file);
-    }
+  return function(opts){
+       console.log(opts);
+
   };
 }
