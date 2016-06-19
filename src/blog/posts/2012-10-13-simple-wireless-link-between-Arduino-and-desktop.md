@@ -6,7 +6,7 @@ comments: true
 social: true
 ---
 
-<img src="{{ site.url }}/img/posts/bt-ckt.jpg" style="float: right;"/>
+<img src="/img/posts/bt-ckt.jpg" style="float: right;"/>
 Bluetooth modules come really cheap these days, affordable alternatives to Xbee. I got my hands on a BTM-182 from Rayson. Like most Bluetooth modules, it comes with Serial Port Profile. SPP is basically a serial port emulator; in a nut shell - once its paired with a computer, you get a virtual COM port to play with. Try to get the module with a breakout board. Well, I forgot about it and ended up needing to improvise (its not too bad though). Download the datasheet [here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/BTM182.pdf).
 
 

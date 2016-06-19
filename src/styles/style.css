@@ -1,175 +1,136 @@
 body{
-   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-   margin: 0px;
+    font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0px;
 }
 
+.align-right{
+    text-align: right;
+}
 .title_container{
-   background-color: #CCC;
+    background-color: #CCC;
 }
 
 .title_container a{
-   color: #000;
-   text-decoration: none;
+    color: #000;
+    text-decoration: none;
 }
 
 .site_title{
-   font-weight: bold;
-   font-size: 36px;
-   letter-spacing: -3px;
-   padding: 5px 0px 0px 5px;
+    font-weight: bold;
+    font-size: 36px;
+    letter-spacing: -1px;
+    padding: 5px 0px 0px 5px;
 }
 
 .site_tagline{
-   font-size: 12px;
-   letter-spacing: -1px;
-   padding: 0px 0px 5px 5px;
-   margin-top: -5px;
+    font-size: 12px;
+    padding: 0px 0px 5px 5px;
+    margin-top: -5px;
 }
 
-.post {
-	padding: 10px;
-}
-
-.post-index {
-	width: 800px;
-}
-
-.post-index table tr {
-	list-style: circle;
-	font-size: 14px;
-	padding: 5px;
-}
-
-.post-index table tr td:first-child {
-	width: 200px;
-	padding: 2px;
-	color: #333;
-	vertical-align: top;
-}
-
-.post-index table tr td:last-child {
-	width: 600px;
-	padding: 2px;
-}
-
-.post-index section {
-	margin-top: 10px;
-}
-
-.post-index tr .post-index-title a,
-.section-nav a {
-   font-weight: bold;
-	background: transparent;
-	color: #000;
-	transition: all 0.25s;
-	text-decoration: none;
-}
-
-.post-index tr a:hover,
-.section-nav a:hover {
-	color: #990000;
-}
-
-.post-index blockquote {
-	border-left: 1px solid #777;
-	padding-left: 20px;
-	font-style: italic;
-	font-size: 14px;
-	font-weight: 500;
+.post-index-row{
+    padding: 5px;
+    font-size: 16px;
 }
 
 /* Article HTML */
 
 .posts header {}
 
-.post-title {
-	position: relative;
-	display: inline-block;
-	font-size: 28px;
-	width: 788px;
-	padding-left: 5px;
-	font-weight: 500;
-	vertical-align: bottom;
-}
+    .post-title {
+        position: relative;
+        display: inline-block;
+        font-size: 28px;
+        width: 788px;
+        padding-left: 5px;
+        font-weight: 500;
+        vertical-align: bottom;
+    }
 
-.post .content {
-	width: 800px;
-	margin-left: 200px;
-}
+    .post .content {
+        width: 800px;
+        margin-left: 200px;
+    }
 
-.post-date {
-	position: relative;
-	display: block;
-	font-size: 14px;
-	color: #333;
-	margin-left: -220px;
-	text-align: right;
-	width: 200px;
-	height: 20px;
-	line-height: 20px;
-	padding: 10px;
-	border-right: 1px dotted rgba(0, 0, 0, 0.1);
-}
+    .post-date {
+        position: relative;
+        display: block;
+        font-size: 14px;
+        color: #333;
+        margin-left: -220px;
+        text-align: right;
+        width: 200px;
+        height: 20px;
+        line-height: 20px;
+        padding: 10px;
+        border-right: 1px dotted rgba(0, 0, 0, 0.1);
+    }
 
-.post .article {
-	font-size: 14px;
-	padding-left: 10px;
-	margin-top: -40px;
-}
+    .post .article {
+        font-size: 14px;
+        padding-left: 10px;
+        margin-top: -40px;
+    }
 
-.post .article p {
-	font-size: 14px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
+    .post .article p {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 
-.post .article img {
-	margin: 15px;
-}
+    .post .article img {
+        margin: 15px;
+    }
 
-.post .social {
-	padding: 2px 0px;
-	width: 88px;
-	height: 30px;
-	margin: auto;
-}
+    .post .social {
+        padding: 2px 0px;
+        width: 88px;
+        height: 30px;
+        margin: auto;
+    }
 
-.post .social a {
-	text-decoration: none;
-}
+    .post .social a {
+        text-decoration: none;
+    }
 
-.post hr {
-	margin-bottom: 10px;
-}
+    .post hr {
+        margin-bottom: 10px;
+    }
 
-blockquote {
-	border-left: 2px solid #777;
-	padding-left: 20px;
-	font-style: italic;
-	font-size: 18px;
-	font-weight: 500;
-}
+    blockquote {
+        border-left: 2px solid #777;
+        padding-left: 20px;
+        font-style: italic;
+        font-size: 18px;
+        font-weight: 500;
+    }
 
-.post .article a,
-.post-index article a {
-	color: #fff;
-	text-decoration: none;
-	background-color: #888;
-	border-radius: 2px;
-	padding: 0px 3px;
-	font-size: 13px;
-}
+    .post .article a,
+    .post-index article a {
+        color: #fff;
+        text-decoration: none;
+        background-color: #888;
+        border-radius: 2px;
+        padding: 0px 3px;
+        font-size: 13px;
+    }
 
-.post .article a:hover,
-.post-index article a:hover {
-	background-color: #000;
-	color: #FFF;
-}
+    .post .article a:hover,
+    .post-index article a:hover {
+        background-color: #000;
+        color: #FFF;
+    }
 
-.post .article a img {
-	background-color: transparent;
-}
+    .post .article a img {
+        background-color: transparent;
+    }
 
-.post .article img a: hover {
-	background-color: transparent;
-}
+    .post .article img a: hover {
+        background-color: transparent;
+    }
+
+    pre{
+        background-color: #F5F5F5;
+        padding: 10px;
+        border-radius: 4px;
+    }

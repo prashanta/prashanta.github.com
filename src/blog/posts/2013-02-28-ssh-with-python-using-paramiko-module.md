@@ -12,9 +12,7 @@ Guide to installing Python modules [here](http://docs.python.org/install/index.h
 
 Here is a basic working example:
 
-<div class="code">
-{% highlight python %}
-
+```python
 import paramiko
 import string
 import webbrowser
@@ -47,8 +45,6 @@ elif c==2:
 else:
 	print "EXIT!"
 ssh.close()
-
-{% endhighlight %}
-</div>
+```
 
 Time saved from having to download log files will be utilized to automate other trivial stuff, perfect!

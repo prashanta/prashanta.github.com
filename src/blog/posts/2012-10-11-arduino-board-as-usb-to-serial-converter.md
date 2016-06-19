@@ -15,8 +15,7 @@ __Method dos__
 
 This method works for all types of Arduino boards. It involves downloading a relay sort of sketch to the Arduino, which looks like so:
 
-<div class='code'>
-{% highlight c %}
+```c
 #include <SoftwareSerial.h>
 
 SoftwareSerial mySerial = SoftwareSerial(10, 11);; // RX, TX
@@ -41,8 +40,7 @@ void loop() {
     mySerial.write(Serial.read());        
   }  
 }
-{% endhighlight %}
-</div>
+```
 
 Leonardo has an added advantage of having two USARTs. Instead of using SoftwareSerial, second USART (Serial1 class) can be used.
 Thats all folks!

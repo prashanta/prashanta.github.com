@@ -1,7 +1,7 @@
 ---
 date: 2013-02-09
 layout: post.html
-title: Repost&#58; What it's Really Like Working with Steve Jobs
+title: Repost - What it's Really Like Working with Steve Jobs
 comments: false
 mini: true
 titlelink: http://inventor-labs.com/blog/2011/10/12/what-its-really-like-working-with-steve-jobs.html

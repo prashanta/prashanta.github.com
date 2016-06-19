@@ -15,21 +15,23 @@
    	<div class="content">
          <div class="post-title">{{ title }}</div>
 
-         <div class="post-date">{{ date }}</div>
+         <div class="post-date">{{date date }}</div>
 
          <div class="article">
             {{{ contents }}}
          </div>
+
+         {{#if this.previous}}
+         Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
+         {{/if}}
+         <br>
+         {{#if this.next}}
+         Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
+         {{/if}}
+
+         {{>comment}}
+
       </div>
-
-      {{#if this.previous}}
-      Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
-      {{/if}}
-
-      {{#if this.next}}
-      Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
-      {{/if}}
-
    </section>
 
    {{>livereload}}

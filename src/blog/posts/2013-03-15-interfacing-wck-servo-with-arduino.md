@@ -62,9 +62,7 @@ The last command will stop the servo.
 
 Now lets use Arduino to control this servo. Download [this][5] Arduino wCK servo library. Here is an example sketch:
 
-<div class='code'>
-{% highlight c linenos %}
-
+```c
 #define SERVO0  0
 Wckservo servo(SERVO0);
 uint8_t angle;
@@ -112,10 +110,7 @@ void loop() {
     }
   }  
 }
-
-
-{% endhighlight %}
-</div>
+```
 <br>
 
 [3]: http://www.robobuilder.net/eng/board/board_down/board_index.asp?cmd=view&page=1&info_ref=17&info_idx=17&w=&k=C&board_type=picture&board_gubun=default&board_name=morgue&title_name=
