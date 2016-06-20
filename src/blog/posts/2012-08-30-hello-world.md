@@ -18,3 +18,7 @@ _Update 18-Jan-2013:_
 Found out about [Jekyll](http://jekyllrb.com/), its just what I was looking for. So now I can post blogs with git commit, fantastic!
 
 ---
+
+_Update 20-Jun-2016:_
+
+Moved the blog to node.js (why not) using [Metalsmith](http://metalsmith.io). This is cool!

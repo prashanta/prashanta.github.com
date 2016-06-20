@@ -2,6 +2,21 @@
 {{>header}}
 
 <div class='container'>
+   {{#each collections.drafts }}
+   <div class="row post-index-row">
+      <div class="col-md-2">
+         <div class="hidden-xs hidden-sm post-index-date">
+            {{date this.date }}
+         </div>
+      </div>
+      <div class="col-md-10">
+         <div class="post-index-title">
+            <a href="/{{ this.path }}">[Draft] {{ this.title }}</a>
+         </div>
+      </div>
+   </div>
+   {{/each}}
+
    {{#each collections.posts }}
    <div class="row post-index-row">
       <div class="col-md-2">

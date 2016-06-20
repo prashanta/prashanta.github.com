@@ -1,5 +1,3 @@
 ---
-layout: home.html
+layout: blog.html
 ---
-
-This is a  landing page!
