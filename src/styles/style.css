@@ -3,16 +3,13 @@ body{
    margin: 0px;
 }
 
-.align-right{
-   text-align: right;
-}
 .title_container{
    background-color: #CCC;
 }
 
-.title_container a,
-.title_container a:hover{
-   color: #000;
+.site_title a,
+.site_title a:hover{
+   color: #910404;
    text-decoration: none;
 }
 
@@ -64,67 +61,9 @@ body{
    vertical-align: bottom;
 }
 
-/*.post .article {
-   font-size: 14px;
-   padding-left: 10px;
-   margin-top: -40px;
+.post-footer{
+   padding: 10px;
 }
-
-.post .article p {
-   font-size: 16px;
-   margin-top: 10px;
-   margin-bottom: 10px;
-}
-
-.post .article img {
-   margin: 15px;
-}
-
-.post .social {
-   padding: 2px 0px;
-   width: 88px;
-   height: 30px;
-   margin: auto;
-}
-
-.post .social a {
-   text-decoration: none;
-}
-
-.post hr {
-   margin-bottom: 10px;
-}
-
-blockquote {
-   border-left: 2px solid #777;
-   padding-left: 20px;
-   font-style: italic;
-   font-size: 18px;
-   font-weight: 500;
-}
-
-.article a{
-   color: red;
-   text-decoration: none;
-   background-color: transparent;
-   border-radius: 2px;
-   padding: 0px 3px;
-   font-size: 13px;
-   transition: all 1s;
-}
-
-.article a:hover{
-   background-color: red;
-   color: #FFF;
-}
-
-.article a img {
-   background-color: transparent;
-}
-
-.article img a: hover {
-   background-color: transparent;
-}*/
 
 pre{
    background-color: #F5F5F5;

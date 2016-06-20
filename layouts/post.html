@@ -18,16 +18,18 @@
          </div>
       </div>
    </div>
-
+   <hr />
    <div class="row">
       <div class="col-md-10 col-md-offset-2">
-         {{#if this.previous}}
-         Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
-         {{/if}}
-         <br>
-         {{#if this.next}}
-         Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
-         {{/if}}
+         <div class="post-footer">
+            {{#if this.previous}}
+            Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
+            {{/if}}
+            <br/><br/>
+            {{#if this.next}}
+            Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
+            {{/if}}
+         </div>
       </div>
    </div>
 

@@ -33,6 +33,11 @@ function metalsmith(){
          pattern: 'blog/posts/*.md',
          sortBy: 'date',
          reverse: true
+      },
+      drafts: {
+         pattern: 'blog/drafts/*.md',
+         sortBy: 'date',
+         reverse: true
       }
    }))
    .use(markdown({
