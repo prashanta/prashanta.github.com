@@ -1,32 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ description }}">
-    <link href="/styles/bootstrap/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="/styles/bootstrap/bootstrap-themes.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="/styles/style.css" media="all" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-    {{> header}}
+{{>head}}
+{{>header}}
 
-    <div class='container'>
+<div class='container'>
+   {{#each collections.posts }}
+   <div class="row post-index-row">
+      <div class="col-md-2 align-right">
+         {{date this.date }}
+      </div>
+      <div class="col-md-10">
+         <a href="/{{ this.path }}">{{ this.title }}</a>
+         {{#if this.excerpt}}
+         {{ this.excerpt}}
+         {{/if}}
+      </div>
+   </div>
+   {{/each}}
+</div>
 
-        {{#each collections.posts }}
-        <div class="row post-index-row">
-            <div class="col-md-2 align-right">
-                {{date this.date }}
-            </div>
-            <div class="col-md-10">
-                <a href="/{{ this.path }}">{{ this.title }}</a>
-                {{#if this.excerpt}}
-                {{ this.excerpt}}
-                {{/if}}
-            </div>
-        </div>
-        {{/each}}
-    </div>
-    {{>livereload}}
-</body>
-</html>
+{{>foot}}

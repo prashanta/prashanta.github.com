@@ -1,42 +1,32 @@
-var Metalsmith  = require('metalsmith');
-var markdown    = require('metalsmith-markdown');
-var collections = require('metalsmith-collections');
-var layouts     = require('metalsmith-layouts');
-var permalinks  = require('metalsmith-permalinks');
-var metallic    = require('metalsmith-metallic');
-var hljs        = require('highlight.js');
+var express = require('express');
+var livereload = require('livereload');
+var metalsmith = require('./app/metalsmith')
+var watch = require('watch')
+var app = express();
 
+metalsmith();
 
-var test  = require('./plugins/test');
+// Live-reload
+server = livereload.createServer({port: 35729});
+server.watch(__dirname + "/build");
 
-Metalsmith(__dirname)
-.metadata({
-   maintitle: "prashanta.xyz",
-   description: "I love moving electrons"
+// Web server
+app.use('/', express.static(__dirname + '/build')); // ← adjust
+app.listen(3000, function() { console.log('listening'); });
+
+// File watch
+watch.watchTree('./src', function (f, curr, prev) {
+   metalsmith();
 })
-.source('./src')
-.destination('./build')
-.clean(false)
-.use(test())
-.use(collections({
-   posts: {
-      pattern: 'blog/posts/*.md',
-      sortBy: 'date',
-      reverse: true
+watch.watchTree('./layouts', function (f, curr, prev) {
+   if (typeof f == "object" && prev === null && curr === null) {
+      // Finished walking the tree
+   } else if (prev === null) {
+      // f is a new file
+   } else if (curr.nlink === 0) {
+      // f was removed
+   } else {
+      // f was changed
    }
-}))
-.use(markdown({
-    highlight: function (code, lang, callback) {
-        console.log(code);
-        console.log(lang);
-            return hljs.highlightAuto(code).value
-}}))
-//.use(metallic())
-.use(permalinks())
-.use(layouts({
-   engine: 'handlebars',
-   partials: 'layouts/partials'
-}))
-.build(function(err, files) {
-   if (err) { throw err; }
-});
+   metalsmith();
+})

@@ -4,8 +4,8 @@ module.exports = function(grunt) {
          site: {
             options: {
                metadata: {
-                  maintitle: "prashanta.xyz",
-                  description: "I love moving electrons!"
+                  maintitle: "gemcity",
+                  description: ""
                },
                plugins: {
                   'metalsmith-collections': {posts: {
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
                   'metalsmith-layouts': {
                      engine: 'handlebars',
                      partials: 'layouts/partials'
-                  }
+                  }l
                }
             },
             clean: false,

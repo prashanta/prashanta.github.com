@@ -1,17 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-</head>
-<body>
-  <h1>{{ title }}</h1>
-  <p>{{ description }}</p>
-  <a href="/blog"><h1> Blog </h1></a>
-  <h1> About </h1>
-  
-  {{{ contents }}}
+{{>head}}
+{{>header}}
+<h1>{{ title }}</h1>
+<p>{{ description }}</p>
+<a href="/blog"><h1> Blog </h1></a>
+<h1> About </h1>
 
-</body>
-</html>
+{{{ contents }}}
+
+{{>foot}}

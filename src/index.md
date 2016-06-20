@@ -2,4 +2,4 @@
 layout: home.html
 ---
 
-This is a fucking landing page!
+This is a  landing page!

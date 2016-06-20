@@ -1,26 +1,26 @@
-<!doctype html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8" />
-   <title>{{ title }}</title>
-   <meta name="description" content="{{ description }}">
-   <link href="/styles/style.css" media="all" rel="stylesheet" type="text/css"/>
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/default.min.css">
-   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
-</head>
-<body>
-   {{>header}}
+{{>head}}
+{{>header}}
 
-   <section class="post">
-   	<div class="content">
-         <div class="post-title">{{ title }}</div>
+<div class='container-fluid'>
+   <div class="row">
+      <div class="col-md-4">
+         <div>{{date date }}</div>
+      </div>
+      <div class="col-md-8">
+         <div>{{ title }}</div>
+      </div>
+   </div>
 
-         <div class="post-date">{{date date }}</div>
-
-         <div class="article">
+   <div class="row">
+      <div class="col-md-12 article">
+         <div>
             {{{ contents }}}
          </div>
+      </div>
+   </div>
 
+   <div class="row">
+      <div class="col-md-12">
          {{#if this.previous}}
          Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
          {{/if}}
@@ -28,12 +28,14 @@
          {{#if this.next}}
          Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
          {{/if}}
-
-         {{>comment}}
-
       </div>
-   </section>
+   </div>
 
-   {{>livereload}}
-</body>
-</html>
+   <div class="row">
+      <div class="col-md-12">
+         {{>comment}}
+      </div>
+   </div>
+
+</div>
+{{>foot}}
