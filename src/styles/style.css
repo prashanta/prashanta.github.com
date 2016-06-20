@@ -1,5 +1,5 @@
 body{
-   font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-family: "Helvetica Neue", helvetica, Arial, sans-serif;
    margin: 0px;
 }
 
@@ -30,8 +30,8 @@ body{
 }
 
 .post-index-row{
-   padding: 5px;
-   font-size: 16px;
+   padding: 10px;
+   border-bottom: 1px dotted #AAA;
 }
 
 .post-index-row a {
@@ -44,6 +44,15 @@ body{
    color: red;
 }
 
+.post-index-title{
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.post-index-date{
+   color: #CCC;
+}
+
 /* Article HTML */
 
 
@@ -51,32 +60,11 @@ body{
    position: relative;
    display: inline-block;
    font-size: 28px;
-   width: 788px;
-   padding-left: 5px;
-   font-weight: 500;
+   font-weight: bold;
    vertical-align: bottom;
 }
 
-.post .content {
-   width: 800px;
-   margin-left: 200px;
-}
-
-.post-date {
-   position: relative;
-   display: block;
-   font-size: 14px;
-   color: #333;
-   margin-left: -220px;
-   text-align: right;
-   width: 200px;
-   height: 20px;
-   line-height: 20px;
-   padding: 10px;
-   border-right: 1px dotted rgba(0, 0, 0, 0.1);
-}
-
-.post .article {
+/*.post .article {
    font-size: 14px;
    padding-left: 10px;
    margin-top: -40px;
@@ -136,7 +124,7 @@ blockquote {
 
 .article img a: hover {
    background-color: transparent;
-}
+}*/
 
 pre{
    background-color: #F5F5F5;

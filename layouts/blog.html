@@ -4,14 +4,15 @@
 <div class='container'>
    {{#each collections.posts }}
    <div class="row post-index-row">
-      <div class="col-md-2 align-right">
-         {{date this.date }}
+      <div class="col-md-2">
+         <div class="hidden-xs hidden-sm align-left post-index-date">
+            {{date this.date }}
+         </div>
       </div>
       <div class="col-md-10">
-         <a href="/{{ this.path }}">{{ this.title }}</a>
-         {{#if this.excerpt}}
-         {{ this.excerpt}}
-         {{/if}}
+         <div class="post-index-title">
+            <a href="/{{ this.path }}">{{ this.title }}</a>
+         </div>
       </div>
    </div>
    {{/each}}

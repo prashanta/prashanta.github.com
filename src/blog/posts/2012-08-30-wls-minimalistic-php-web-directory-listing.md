@@ -1,5 +1,5 @@
 ---
-date: 2012-08-30
+date: 2012-08-31
 layout: post.html
 title: wls - Minimalistic PHP web directory listing
 comments: true

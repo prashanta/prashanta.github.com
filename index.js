@@ -2,6 +2,9 @@ var express = require('express');
 var livereload = require('livereload');
 var metalsmith = require('./app/metalsmith')
 var watch = require('watch')
+var Log = require('log');
+var log = new Log('info');
+
 var app = express();
 
 metalsmith();
@@ -12,21 +15,26 @@ server.watch(__dirname + "/build");
 
 // Web server
 app.use('/', express.static(__dirname + '/build')); // ← adjust
-app.listen(3000, function() { console.log('listening'); });
+app.listen(3000, function() {
+   log.info('Server listing on port 3000 ...');
+});
 
 // File watch
 watch.watchTree('./src', function (f, curr, prev) {
-   metalsmith();
+   if (typeof f == "object" && prev === null && curr === null) {
+      log.info("Finished walking the tree at /src");
+   }
+   else{
+      log.info("File changed: " + f);
+      metalsmith();
+   }
 })
 watch.watchTree('./layouts', function (f, curr, prev) {
    if (typeof f == "object" && prev === null && curr === null) {
-      // Finished walking the tree
-   } else if (prev === null) {
-      // f is a new file
-   } else if (curr.nlink === 0) {
-      // f was removed
-   } else {
-      // f was changed
+      log.info("Finished walking the tree at /layouts");
    }
-   metalsmith();
+   else{
+      log.info("File changed: " + f);
+      metalsmith();
+   }
 })
