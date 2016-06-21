@@ -19,13 +19,15 @@
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-metallic": "^1.0.0",
     "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-templates": "^0.7.0"
+    "metalsmith-templates": "^0.7.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "express": "^4.14.0",
     "grunt": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-metalsmith": "^1.0.0",
+    "inquirer": "^1.0.3",
     "livereload": "^0.4.1",
     "watch": "^0.18.0",
     "wr": "^1.3.1"

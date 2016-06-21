@@ -1,5 +1,5 @@
 ---
-date: 2013-01-23 09:14:00 +0700
+date: 2013-01-23
 layout: post.html
 title: Jekyll is damn good!
 comments: true

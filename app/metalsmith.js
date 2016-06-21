@@ -11,6 +11,7 @@ var Log         = require('log');
 var log         = new Log('info');
 
 
+
 // create a server
 // run metalsmith
 // watch for changes - if changes run metalsmith
@@ -18,32 +19,41 @@ var log         = new Log('info');
 
 module.exports = metalsmith;
 
-function metalsmith(){
-   Metalsmith(__dirname)
-   .metadata({
-      maintitle: "prashanta",
-      description: "I love moving electrons"
-   })
-   .source('../src')
-   .destination('../build')
-   .clean(false)
-   .use(test())
-   .use(collections({
+function metalsmith(publish){
+   var config = require('../config');
+   var col = {
       posts: {
          pattern: 'blog/posts/*.md',
          sortBy: 'date',
          reverse: true
-      },
-      drafts: {
+      }
+   };
+   var doClean = true;
+
+   if(!publish){
+      doClean = false;
+      col.drafts = {
          pattern: 'blog/drafts/*.md',
          sortBy: 'date',
          reverse: true
       }
-   }))
+
+   }
+   Metalsmith(__dirname)
+   .metadata({
+      maintitle: config.siteTitle,
+      description: config.siteTagLine
+   })
+   .source('../src')
+   .destination('../build')
+   .clean(doClean)
+   .use(test())
+   .use(collections(col))
    .use(markdown({
       highlight: function (code, lang, callback) {
          return hljs.highlightAuto(code).value
-   }}))
+      }
+   }))
    //.use(metallic())
    .use(permalinks())
    .use(layouts({
