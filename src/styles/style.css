@@ -17,12 +17,10 @@ body{
    font-weight: bold;
    font-size: 43px;
    letter-spacing: -1px;
-   padding: 5px 0px 0px 5px;
 }
 
 .site_tagline{
    font-size: 12px;
-   padding: 0px 0px 5px 5px;
    margin-top: -5px;
 }
 
@@ -61,6 +59,10 @@ body{
    vertical-align: bottom;
 }
 
+.post-date{
+    color: #BBB;
+}
+
 .post-footer{
    padding: 10px;
 }
@@ -68,4 +70,6 @@ body{
 pre{
    padding: 10px;
    border-radius: 4px;
+   background-color: #002b36;
+   color: #839496;
 }

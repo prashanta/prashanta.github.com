@@ -26,7 +26,7 @@
       "metalsmith-metallic": "^1.0.0",
       "metalsmith-permalinks": "^0.5.0",
       "metalsmith-templates": "^0.7.0",
-      "underscore": "^1.8.3"
+      "underscore": "^1.8.3",
       "watch": "^0.18.0"
    }
 }

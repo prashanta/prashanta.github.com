@@ -8,7 +8,7 @@ social: true
 
 This is something I wrote a while back.
 
-<center><img src="/img/posts/wls.png" style="width: 800px;"/></center>
+<img src="/img/posts/wls.png" style="width: 80%;"/>
 
 v1.0 Features:
 
