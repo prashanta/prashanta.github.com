@@ -6,7 +6,7 @@ var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
 var metallic    = require('metalsmith-metallic');
 var hljs        = require('highlight.js');
-var test        = require('../plugins/test');
+var hbhelpers   = require('../plugins/hbhelpers');
 var Log         = require('log');
 var log         = new Log('info');
 
@@ -37,8 +37,8 @@ function metalsmith(publish){
          sortBy: 'date',
          reverse: true
       }
-
    }
+
    Metalsmith(__dirname)
    .metadata({
       maintitle: config.siteTitle,
@@ -47,10 +47,10 @@ function metalsmith(publish){
    .source('../src')
    .destination('../build')
    .clean(doClean)
-   .use(test())
+   .use(hbhelpers())
    .use(collections(col))
    .use(markdown({
-      highlight: function (code, lang, callback) {
+      highlight: function (code) {
          return hljs.highlightAuto(code).value
       }
    }))

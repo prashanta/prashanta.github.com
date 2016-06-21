@@ -1,6 +1,6 @@
 var config = {
-   siteTitle: "Prashanta",
-   siteTagLine: "I love moving electrons"
+   siteTitle: "GEMT",
+   siteTagLine: ""
 }
 
 module.exports = config;

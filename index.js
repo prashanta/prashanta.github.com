@@ -1,10 +1,13 @@
-var Log = require('log');
-var program = require('commander');
-var log = new Log('info');
+var Log        = require('log');
+var program    = require('commander');
+var livereload = require('livereload');
+var watch      = require('watch')
+var express    = require('express');
 var metalsmith = require('./app/metalsmith')
-var express = require('express');
+var blog       = require('./app/blog')
+
 var app = express();
-var blog = require('./app/blog')
+var log = new Log('info');
 
 program.version('0.0.1')
 .option('-p, --publish', 'Pulish site')
@@ -25,11 +28,8 @@ else if (program.publish){
    app.listen(4000, function() {
       log.info('Server listing on port 4000 ...');
    });
-}else{
-   var livereload = require('livereload');
-   var watch = require('watch')
-
-
+}
+else{
    // Live-reload
    server = livereload.createServer({port: 35730});
    server.watch(__dirname + "/build");
@@ -51,7 +51,8 @@ else if (program.publish){
          log.info("File changed: " + f);
          metalsmith();
       }
-   })
+   });
+
    watch.watchTree('./layouts', function (f, curr, prev) {
       if (typeof f == "object" && prev === null && curr === null) {
          log.info("Finished walking the tree at /layouts");
@@ -60,5 +61,5 @@ else if (program.publish){
          log.info("File changed: " + f);
          metalsmith();
       }
-   })
+   });
 }
