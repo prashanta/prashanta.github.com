@@ -1,0 +1,6 @@
+_site/
+.DS_Store
+_posts/3013*.md
+_posts/3014*.md
+css/.DS_Store
+_posts/_PROJECT.DAT
