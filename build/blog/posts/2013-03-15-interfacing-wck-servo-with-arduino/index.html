@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Interfacing wCK servo with Python &amp; Arduino</title>
+    <meta name="description" content="I love moving electrons">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/styles/bootstrap/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/styles/bootstrap/bootstrap-theme.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/styles/highlight/obsidian.css">
+    <link href="/styles/style.css" media="all" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav class="navbar navbar-default">
+   <div class="container title-container">
+      <div class="navbar-header">
+         <div class='site_title'>
+            <a href="/">prashanta</a>
+         </div>
+         <div class='site_tagline'>I love moving electrons</div>
+      </div>
+   </div>
+</nav>
+
+<div class='container'>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="post-date">15th Mar 13</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="post-title">Interfacing wCK servo with Python &amp; Arduino</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="article">
+                <center><img src="/img/posts/wckservo.jpg" width="400px" style="float: right"/></center>
+
+<p>I have been playing with wCK Servo from <a href="http://www.robobuilder.net/" target="_blank" >RoboBuilder</a> for a while now. This servo packs quite a punch:</p>
+<ul>
+<li>Built-in PID controller</li>
+<li>I/O pins (1 ADC input, 2 digital output)</li>
+<li>Serial interface</li>
+<li>Control multiple servos on a multi-drop bus network</li>
+</ul>
+<p>Its <a href="http://robosavvy.com/RoboSavvyPages/Robobuilder/robobuilder-creator-users-manual.pdf" target="_blank" >user manual</a> is pretty comprehensive, it has everything you will need to know to run this bad boy. It comes in different variants, I am using wCK-1111 - it has max power of <em>1.1 W</em> and delivers <em>11 kg.cm</em> torque.</p>
+<p>Lets first try to get it running via a computer using serial port (or USB-to-Serial converter). Download the official Windows (only) program - <a href="http://www.robobuilder.net/eng/board/board_down/board_index.asp?cmd=view&amp;page=1&amp;info_ref=17&amp;info_idx=17&amp;w=&amp;k=C&amp;board_type=picture&amp;board_gubun=default&amp;board_name=morgue&amp;title_name=">wCK Programmer</a>. This program can be used to configure parameters (ID, baud rate, PID gains) and issue motion commands (move to a position, rotate CW/CCW) to servo. The program itself is self-explanatory. However, since I am on OS X I wanted something native, so here is a small Python script that communicates with the servo - <a href="http://github.com/prashanta/wck.py">wck.py</a>. Not all functions of wCK Programmer have been ported but it includes the basic stuff.</p>
+<p>Right out of the package, wCK servo will come with following default parameters:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>Baud Rate</strong></td>
+<td style="text-align:left">: 115200 bps</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>P gain</strong></td>
+<td style="text-align:left">: 20</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>D gain</strong></td>
+<td style="text-align:left">: 30</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>I gain</strong></td>
+<td style="text-align:left">: 0</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>ID</strong></td>
+<td style="text-align:left">: 0</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>Over current limit</strong></td>
+<td style="text-align:left">: 400 mA</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>Angle range</strong></td>
+<td style="text-align:left">: 1 -254</td>
+</tr>
+</tbody>
+</table>
+<p>wCK exposes identical 4-pin terminal on either side. These pins are for Tx, Rx, Gnd and Vcc. Wire the 4 pins with corrosponding pins on your serial port (I am using a USB-to-USART converter) This is trival but here it goes - Tx of Servo goes to Rx of serial port, vice versa. wck.py is basically a Python class, so lets start by firing up the Python console:</p>
+<p><code>$ python</code></p>
+<p>Now import the servo class from wck library and initiate the class with serial port, baudrate and servo ID:</p>
+<p><code>&gt;&gt;&gt; from wck import servo</code></p>
+<p><code>&gt;&gt;&gt; a = servo(&quot;/dev/tty.SLAB_USBtoUART&quot;,115200,0)</code></p>
+<p>If you do not know the servo ID or the baud rate, run the scan function. This is a brute force method to determine baudrate and ID the servo will respond to:</p>
+<p><code>&gt;&gt;&gt; a.scan()</code></p>
+<p>Here are some basic functions to move servo to a specified position, read the position, drive the servo in CW direction and CCW direction:</p>
+<p><code>&gt;&gt;&gt; a.pos(4,102)</code></p>
+<p><code>&gt;&gt;&gt; a.readPos()</code></p>
+<p><code>&gt;&gt;&gt; a.cw(12)</code></p>
+<p><code>&gt;&gt;&gt; a.ccw(12)</code></p>
+<p><code>&gt;&gt;&gt; a.ccw(0)</code></p>
+<p>The last command will stop the servo.</p>
+<p>Now lets use Arduino to control this servo. Download <a href="http://github.com/prashanta/wckservo">this</a> Arduino wCK servo library. Here is an example sketch:</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SERVO0  0</span>
+Wckservo servo(SERVO0);
+uint8_t angle;
+uint8_t dir;
+uint8_t ret;
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">setup</span>() {
+  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">begin</span>(<span class="hljs-number">115200</span>);
+  <span class="hljs-built_in">while</span> (!<span class="hljs-built_in">Serial</span>)
+  ;  
+  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"Ready!"</span>);  
+  angle = <span class="hljs-number">1</span>;
+  dir = <span class="hljs-number">0</span>;
+  ret = servo.posMove(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);
+  servo.rotateCW(<span class="hljs-number">1</span>);
+  <span class="hljs-built_in">delay</span>(<span class="hljs-number">5000</span>);  
+  servo.rotateCW(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">write</span>(ret);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">loop</span>() {
+  <span class="hljs-built_in">if</span> (<span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">available</span>() &gt; <span class="hljs-number">0</span>) {    
+    ret = <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">read</span>();
+    <span class="hljs-built_in">if</span>(ret == <span class="hljs-string">'a'</span>)
+      servo.rotateCW(<span class="hljs-number">1</span>);
+    <span class="hljs-built_in">else</span> <span class="hljs-built_in">if</span>(ret == <span class="hljs-string">'b'</span>)
+      servo.rotateCW(<span class="hljs-number">0</span>);
+    <span class="hljs-built_in">else</span> <span class="hljs-built_in">if</span>(ret == <span class="hljs-string">'c'</span>)
+      servo.rotateCCW(<span class="hljs-number">1</span>);  
+    <span class="hljs-built_in">else</span>{  
+      ret = servo.posMove(<span class="hljs-number">1</span>,angle);           
+      <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">write</span>(ret);
+      <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Angle:"</span>);
+      <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(angle);
+      <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">flush</span>();
+      <span class="hljs-built_in">if</span>(dir==<span class="hljs-number">0</span> &amp;&amp; angle &lt;= <span class="hljs-number">254</span>)
+        dir = <span class="hljs-number">0</span>;
+      <span class="hljs-built_in">else</span>
+        dir = <span class="hljs-number">1</span>;
+      <span class="hljs-built_in">if</span>(dir==<span class="hljs-number">1</span> &amp;&amp; angle &gt;= <span class="hljs-number">1</span>)
+        dir = <span class="hljs-number">1</span>;
+      <span class="hljs-built_in">else</span>
+        dir = <span class="hljs-number">0</span>;  
+      angle = (dir)? angle<span class="hljs-number">-5</span> : angle+<span class="hljs-number">5</span>;
+    }
+  }  
+}
+</code></pre>
+<p><br></p>
+
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-10">
+            <div class="post-footer">
+                Next: <a href='/blog/posts\2016-03-02-windows-environment-variable-stuff'>Windows Environment Variable Stuff</a>
+                <br/><br/>
+                Previous: <a href='/blog/posts\2013-02-28-ssh-with-python-using-paramiko-module'>Automating remote file access through SSH with Python using Paramiko module</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="section-comment">
+            	<div id="disqus_thread"></div>
+            </div>
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'codeslashsignal'; // required: replace example with your forum shortname
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+            	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            	dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            	})();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+</div>
+<script>
+document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1"></' + 'script>')
+</script>
+</body>
+</html>
