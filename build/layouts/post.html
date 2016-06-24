@@ -1,0 +1,45 @@
+{{>head}}
+{{>header}}
+
+<div class='container'>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="post-date">{{date date }}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="post-title">{{ title }}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="article">
+                {{{ contents }}}
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-10">
+            <div class="post-footer">
+                {{#if this.previous}}
+                Next: <a href='{{link this.previous.path}}'>{{this.previous.title}}</a>
+                {{/if}}
+                <br/><br/>
+                {{#if this.next}}
+                Previous: <a href='{{link this.next.path}}'>{{this.next.title}}</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            {{>comment}}
+        </div>
+    </div>
+
+</div>
+{{>foot}}
