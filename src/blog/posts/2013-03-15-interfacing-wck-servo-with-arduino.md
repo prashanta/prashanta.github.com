@@ -4,6 +4,7 @@ layout: post.html
 comments: true
 social: true
 title: Interfacing wCK servo with Python & Arduino
+imgpreview: "wckservo.jpg"
 ---
 <center><img src="/img/posts/wckservo.jpg" width="400px" style="float: right"/></center>
 

@@ -1,5 +1,5 @@
 var config = {
-   siteTitle: "Prashanta",
+   siteTitle: "prashanta",
    siteTagLine: "I love moving electrons"
 }
 

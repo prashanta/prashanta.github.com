@@ -10,13 +10,6 @@ var hbhelpers   = require('../plugins/hbhelpers');
 var Log         = require('log');
 var log         = new Log('info');
 
-
-
-// create a server
-// run metalsmith
-// watch for changes - if changes run metalsmith
-
-
 module.exports = metalsmith;
 
 function metalsmith(publish){

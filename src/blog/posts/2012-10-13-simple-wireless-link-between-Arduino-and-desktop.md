@@ -4,6 +4,7 @@ layout: post.html
 title: Simple wireless link between Arduino and a desktop using Bluetooth
 comments: true
 social: true
+imgpreview: 'bt-ckt.jpg'
 ---
 
 <img src="/img/posts/bt-ckt.jpg" style="float: right;"/>
@@ -47,7 +48,7 @@ Basically this sketch sends all data received on RX of USB Serial to TX of Bluet
 
 Next, I wanted to change the Bluetooth attributes, specially - device name, passcode and baud rate. To do this, we need to talk with the module using AT commands, its simple enough. [Here](http://www.sparkfun.com/datasheets/Wireless/Bluetooth/SPP%20AT%20command%20set.pdf) is the list of AT Command Set for BMT-182. Firstly the module needs to be switched to command mode by sending +++, it will send back OK as acknowledgement. My favorite command is `ATI1`, this command lists all current attribute values,
 
-```c
+```console
 ATI1
 OK
 ATC=1, HARDWARE FLOW CONTROL
@@ -71,4 +72,4 @@ To set new passcode to _0000_ send: `ATP=0000` ; to change device name: `ATN=BTS
 
 Bluetooth module are quite robust after pairing is established, leaving the user to focus on data.
 
-More info here: [Byron's Blog](http://byron76.blogspot.com/) | [Rayson BTM222 & BTM112 Bluetooth modules](http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html) | [Technical stuffs on Bluetooth](http://www.cs.tut.fi/kurssit/TLT-6556/Slides/2-Bluetooth.pdf)
+More info here: [Byron's Blog](http://byron76.blogspot.com/) | [Rayson BTM222 & BTM112 Bluetooth modules](http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html) | [Technical stuff on Bluetooth](http://www.cs.tut.fi/kurssit/TLT-6556/Slides/2-Bluetooth.pdf)

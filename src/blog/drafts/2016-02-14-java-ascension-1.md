@@ -1,6 +1,6 @@
 ---
 layout: post.html
-title: Java Ascension - Part 1
+title: "Java: Back to the Rudiments - Part 1"
 comments: true
 social: true
 ---
@@ -17,10 +17,10 @@ Before we start, we need:
 <br/>  
 
 ### 1. The First Application - Hello World, what else
-Lets start off with a basic Java program called Hello.java:
+Lets start off with a basic Java program called App.java:
 
 ```java
-public class Hello{
+public class App{
   public static void main(String [] args){
     System.out.println("Hello World, what else");
   }
@@ -29,13 +29,13 @@ public class Hello{
 Lets compile this program:
 
 ```console
-javac Hello.java
+javac App.java
 ```
 
 This will compile _Hello.java_ to produce _Hello.class_. This .class file contains Java Bytecode representation of our _Hello.java_ program that can be executed by JVM (Java Virtual Machine). Lets run this compiled Java program:
 
 ```console
-java Hello
+java App
 ```
 
 <br>

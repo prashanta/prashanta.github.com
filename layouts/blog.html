@@ -25,9 +25,18 @@
          </div>
       </div>
       <div class="col-md-10">
-         <div class="post-index-title">
-            <a href="/{{ this.path }}">{{ this.title }}</a>
+         <div class="row">
+            <div class="col-md-10 post-index-title">
+               <a href="/{{ this.path }}">{{ this.title }}</a>
+            </div>
          </div>
+         {{#if this.imgpreview}}
+         <div class="row hidden-xs hidden-sm">
+            <div class="col-md-10">
+               <img src="/img/posts/{{this.imgpreview}}" width="25%">
+            </div>
+         </div>
+         {{/if}}
       </div>
    </div>
    {{/each}}
