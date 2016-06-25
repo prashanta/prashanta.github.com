@@ -57,15 +57,15 @@
 <p>Lets compile this program:</p>
 <pre><code class="lang-console"><span class="hljs-selector-tag">javac</span> <span class="hljs-selector-tag">App</span><span class="hljs-selector-class">.java</span>
 </code></pre>
-<p>This will compile <em>Hello.java</em> to produce <em>Hello.class</em>. This .class file contains Java Bytecode representation of our <em>Hello.java</em> program that can be executed by JVM (Java Virtual Machine). Lets run this compiled Java program:</p>
+<p>This will compile <em>App.java</em> to produce <em>App.class</em>. This .class file contains Java Bytecode representation of our <em>App.java</em> program that can be executed by JVM (Java Virtual Machine). Lets run this compiled Java program:</p>
 <pre><code class="lang-console"><span class="hljs-keyword">java </span>App
 </code></pre>
 <p><br></p>
 <h3 id="2-working-with-multiple-source-files">2. Working with multiple source files</h3>
 <p>Create one more file <em>Calc.java</em>:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Calc</span>{
-    <span class="hljs-keyword">int</span> a;
-    <span class="hljs-keyword">int</span> b;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> a;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> b;
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Calc</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b</span>)</span>{
         <span class="hljs-keyword">this</span>.a = a;
