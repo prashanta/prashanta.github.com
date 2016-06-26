@@ -3,6 +3,14 @@ body{
    margin: 0px;
 }
 
+.site-bar{
+   background-color: #FDFDFD;
+   border: 0px;
+   border-radius: 0px;
+   background-image: none;
+   box-shadow: none;
+}
+
 .title_container{
    background-color: #CCC;
 }
