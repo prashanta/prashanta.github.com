@@ -38,31 +38,31 @@
     <div class="row">
         <div class="col-md-10">
             <div class="article">
-                <p>When I need to work on a new Java project, I run Maven to bootstrap a basic project skeleton with my choosen favour of artifact (slash framework). Then manage all aspects of development in Eclipse IDE. This process is like clockwork and I can do this from comfort of my IDE. Nonetheless, it is essential to understand underlying technology and tools.</p>
-<p>In this posts I am going to talk about writing Java programs form command line tools.</p>
+                <p>To start a new Java project, I use Maven to bootstrap a basic project skeleton with my chosen flavor of artifact (slash framework). Thereon all aspects of the development are managed via Eclipse IDE. These modern tools have certainly made our lives easy. Nonetheless, it is essential to understand underlying tools that make this work.</p>
+<p>In this posts I am going to talk about writing Java programs using command line tools and gradually moving up to Maven.</p>
 <p>Before we start, we need:</p>
 <ol>
 <li>JDK installed and environment variable PATH configured to point to JDK folder</li>
 <li>Your favorite  text editor (Atom, Notepad, etc - we will leave out Eclipse for now)</li>
 </ol>
-<p><br/>  </p>
-<h3 id="1-the-first-application-hello-world-what-else">1. The First Application - Hello World, what else</h3>
+<p>Get the source code used in this post from <a href="https://github.com/prashanta/java_rudiments">github</a>.</p>
+<h3 id="1-the-first-application-hello-world">1. The First Application - Hello World</h3>
 <p>Lets start off with a basic Java program called <em>App.java</em>:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">App</span>{
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String [] args</span>)</span>{
-    System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Hello World, what else"</span>);
+    System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Hello World"</span>);
   }
 }
 </code></pre>
-<p>Lets compile this program:</p>
+<p>Point to note here is that the class name <em>App</em> is the same as the .java file name. Lets compile this simple program using <strong>javac</strong>:</p>
 <pre><code class="lang-console"><span class="hljs-selector-tag">javac</span> <span class="hljs-selector-tag">App</span><span class="hljs-selector-class">.java</span>
 </code></pre>
-<p>This will compile <em>App.java</em> to produce <em>App.class</em>. This .class file contains Java Bytecode representation of our <em>App.java</em> program that can be executed by JVM (Java Virtual Machine). Lets run this compiled Java program:</p>
+<p>This will compile <em>App.java</em> to <em>App.class</em>. This .class file contains Java Bytecode representation of our <em>App.java</em> program that can be executed by JVM (Java Virtual Machine). Lets run this compiled Java program:</p>
 <pre><code class="lang-console"><span class="hljs-keyword">java </span>App
+Hello World
 </code></pre>
-<p><br></p>
 <h3 id="2-working-with-multiple-source-files">2. Working with multiple source files</h3>
-<p>Create one more file <em>Calc.java</em>:</p>
+<p>Lets get a bit more complicated than that and introduce one more source file -  <em>Calc.java</em>:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Calc</span>{
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> a;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> b;
@@ -77,7 +77,7 @@
     }
 }
 </code></pre>
-<p>Edit <em>App.java</em> :</p>
+<p>Edit <em>App.java</em> to use this new class:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">App</span>
 {
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{
@@ -91,7 +91,8 @@
 mkdir <span class="hljs-keyword">target</span>/<span class="hljs-keyword">class</span>
 javac -verbose -d <span class="hljs-keyword">target</span>/<span class="hljs-keyword">class</span> App.java
 </code></pre>
-<p>This is how the folder structure looks:</p>
+<p>When <em>App.java</em> is being compiled, <em>Calc.java</em> will also get compiled.
+This is how the folder structure looks:</p>
 <pre>
 .
 ├── App.java
@@ -112,7 +113,7 @@ java <span class="hljs-keyword">App</span>
 <p><em>Tip:</em> A java file can contain multiple class declaration, but can have only one public class, whose name is same as the file name.
 <br></p>
 <h3 id="3-using-package">3. Using Package</h3>
-<p>As application starts getting complex, it will make more sense to structure your source code in folders based on some sort of similarity or functionality. This is where java package comes in. Java package is a method of bundling similar source files. It also helps in avoid naming conflicts and by archiving the package in JAR files, it becomes convenient to re-distribute and reuse libraries. Lets start off by looking at how we can package the Calc class:</p>
+<p>As application starts getting complex, it will make more sense to structure your source code in folders based on some sort of similarity or functionality. This is where java package comes in. Java package is a method of bundling similar source files. It also helps in avoid naming conflicts and by archiving the package in JAR files, it becomes convenient to distribute and reuse libraries. Lets start off by looking at how we can package the Calc class:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> com.foo
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Calc</span></span>{
@@ -181,8 +182,7 @@ java App
 <pre><code class="lang-console"><span class="hljs-keyword">cd</span> target/class/<span class="hljs-keyword">com</span>/main
 java -<span class="hljs-keyword">cp</span> ../../ <span class="hljs-keyword">com</span>.main.App
 </code></pre>
-<p>That&#39;s all for now. Next post I will look into using third party libraries, creating JAR and WAR archives.</p>
-<p>Find source code used in this post <a href="https://github.com/prashanta/java_rudiments">here</a>.</p>
+<p>That&#39;s all for now. Next post I will look into using third party libraries, creating JAR and using Maven.</p>
 
             </div>
         </div>

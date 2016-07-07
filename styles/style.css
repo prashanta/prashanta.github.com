@@ -4,7 +4,7 @@ body{
 }
 
 .site-bar{
-   background-color: #FDFDFD;
+   background-color: #626C79;
    border: 0px;
    border-radius: 0px;
    background-image: none;
@@ -17,19 +17,20 @@ body{
 
 .site_title a,
 .site_title a:hover{
-   color: #910404;
+   color: #FF6D6D;
    text-decoration: none;
 }
 
 .site_title{
    font-weight: bold;
    font-size: 43px;
-   letter-spacing: -4px;
+   letter-spacing: -2px;
 }
 
 .site_tagline{
    font-size: 12px;
    margin-top: -5px;
+   color: #D4D4D4;
 }
 
 .post-index-row{
