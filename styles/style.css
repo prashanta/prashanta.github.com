@@ -1,0 +1,178 @@
+html {
+  -webkit-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+}
+
+html, body {
+   font-family: "Raleway", "Helvetica Neue", helvetica, Arial, sans-serif;
+   margin: 0px;
+   padding: 0px;
+   vertical-align: baseline;
+   outline: 0;
+   font-size: 100%;
+}
+
+.main{
+   background-color: #566172;
+}
+
+.main-title{
+   padding-top: 20px;
+   font-size: 50px;
+   letter-spacing: -4px;
+   font-weight: 200;
+   text-align: center;
+}
+
+.main-desc{
+   font-size: 20px;
+   margin-left: 10%;
+   margin-right: 10%;
+   color: #EEE;
+   font-weight: 200;
+   text-align: center;
+}
+
+.first-name{
+   font-weight: 600;
+   color: #FFF;
+}
+
+.last-name{
+   color: #AAB8C2;
+   font-weight: 100;
+}
+.container-fluid{
+   padding-right: 0px;
+   padding-left: 0px;
+   margin-left: 0px;
+   margin-right: 0px;
+}
+
+.main-link a {
+   display: inline-block;
+   margin: 2px 0px 2px -2px;
+   color: #94ffc6;
+   text-decoration: none;
+   transition: all 0.5s;
+}
+
+.main-link a:hover {
+   color: #e1ff11;
+}
+
+.main-link i {
+   font-size: 28px;
+   padding: 8px;
+}
+
+.site-bar{
+   background-color: #657786;
+   border: 0px;
+   border-radius: 0px;
+   background-image: none;
+   box-shadow: none;
+}
+
+.title_container{
+   background-color: #566172;
+}
+
+.site_title a,
+.site_title a:hover{
+   color: #FFF;
+   text-decoration: none;
+}
+
+.site_title{
+   font-weight: 100;
+   font-size: 43px;
+   letter-spacing: -2px;
+   text-align: center;
+}
+
+.site_tagline{
+   font-size: 12px;
+   margin-top: -5px;
+   color: #D4D4D4;
+   text-align: center
+}
+
+.blog-index-container{
+   margin-left: 10%;
+   margin-right: 10%;
+   font-size: 16px;
+}
+
+.post-index-row{
+   padding: 10px 0px 10px 0px;
+   border-bottom: 1px solid #ededed;
+   margin: auto;
+   display: block;
+}
+
+.post-index-row a {
+   color: #000;
+   text-decoration: none;
+   transition: all 0.5s;
+}
+
+.post-index-row a:hover {
+   color: red;
+}
+
+.post-index-title{
+   font-weight: 600;
+   display: block;
+   margin: auto;
+   text-align: center;
+}
+
+.post-index-date{
+   color: #666;
+   width: 100%;
+   display: block;
+   margin: auto;
+   text-align: center;
+   font-size: 17px;
+   font-weight: 200;
+}
+
+.post-date{
+   margin-top: 15px;
+}
+
+/* Article HTML */
+
+
+.post-title {
+   position: relative;
+   display: inline-block;
+   font-size: 28px;
+   font-weight: 400;
+   vertical-align: bottom;
+   margin-bottom: 15px;
+}
+
+.post-date{
+   color: #BBB;
+}
+
+.post-footer{
+   padding: 10px;
+}
+
+.article{
+   font-size: 16px;
+}
+
+pre{
+   padding: 10px;
+   border-radius: 4px;
+   background: #000;
+   color: #e0e2e4;
+}
+
+.navbar-header{
+   width: 100%;
+}
