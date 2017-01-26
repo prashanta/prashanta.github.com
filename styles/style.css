@@ -44,9 +44,9 @@ html, body {
 }
 .container-fluid{
    padding-right: 0px;
-   padding-left: 0px;
+   padding-left: 50px;
    margin-left: 0px;
-   margin-right: 0px;
+   margin-right: 50px;
 }
 
 .main-link a {
@@ -75,33 +75,32 @@ html, body {
 }
 
 .title_container{
-   background-color: #566172;
+
 }
 
 .site_title a,
 .site_title a:hover{
-   color: #FFF;
+   color: #000;
    text-decoration: none;
 }
 
 .site_title{
    font-weight: 100;
-   font-size: 43px;
+   font-size: 30px;
    letter-spacing: -2px;
-   text-align: center;
+   text-align: left;
 }
 
 .site_tagline{
    font-size: 12px;
    margin-top: -5px;
    color: #D4D4D4;
-   text-align: center
+   text-align: left
 }
 
 .blog-index-container{
-   margin-left: 10%;
    margin-right: 10%;
-   font-size: 16px;
+   font-size: 14px;
 }
 
 .post-index-row{
@@ -123,18 +122,18 @@ html, body {
 
 .post-index-title{
    font-weight: 600;
-   display: block;
+   display: inline-block;;
    margin: auto;
-   text-align: center;
+   text-align: left;
 }
 
 .post-index-date{
    color: #666;
-   width: 100%;
-   display: block;
+   width: 10%;
+   display: inline-block;;
    margin: auto;
-   text-align: center;
-   font-size: 17px;
+   text-align: left;
+   font-size: 12px;
    font-weight: 200;
 }
 

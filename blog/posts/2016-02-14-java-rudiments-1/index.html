@@ -16,20 +16,20 @@
    <div class='container-fluid'>
       <div class="title_container">
          <div class='site_title'>
-            <a href="/blog">prashanta / blog</a>
+            <a href="/blog">prashanta/blog</a>
          </div>
          <div class='site_tagline'>I love moving electrons</div>
       </div>
    </div>
-   <div class='blog-index-container'>
-      <div class='post-index-date post-date'>
+   <div class='container-fluid'>
+      <div class='post-date'>
          14 Feb, 2016
       </div>
 
-      <div class="post-index-title">
-         <div class="post-title">Java Rudiments - Part 1</div>
+      <div class="post-title">
+         <div>Java Rudiments - Part 1</div>
       </div>
-
+      
       <div class="article">
          <p>I use Maven to bootstrap new Java project with my chosen flavor of artifacts (and framework/libraries). Thereon all aspects of development are managed via Eclipse IDE. These modern tools have certainly made our lives easy. Nonetheless, it is essential to understand underlying rudiments.</p>
 <p>In this posts I am going to discard all fancy tools and write Java programs using command line tools, gradually moving up to Maven.</p>
@@ -71,8 +71,8 @@
 
 <p>You can omit <em>-verbose</em> flag for regular use.
 Lets run this compiled Java program by passing class name to <em>java</em> command, in our case its <em>App</em>:</p>
-<pre><code class="lang-console"><span class="hljs-keyword">java </span>App
-Hello World
+<pre><code class="lang-console"><span class="hljs-attribute">java App
+Hello World</span>
 </code></pre>
 <p><em>java</em> will invoke <em>main</em> method from <em>App</em> class.</p>
 <h3 id="2-working-with-multiple-source-files">2. Working with multiple source files</h3>
@@ -96,7 +96,7 @@ Hello World
 {
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{
         Calc a = <span class="hljs-keyword">new</span> Calc(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);
-        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Hello World!"</span> + a.add());
+        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Hello World!"</span> + a.<span class="hljs-keyword">add</span>());
     }
 }
 </code></pre>
@@ -155,7 +155,7 @@ include com.foo.Calc;
 
    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>)</span>{
       Calc c = <span class="hljs-keyword">new</span> Calc(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);
-      System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Sum = "</span> + c.add());
+      System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Sum = "</span> + c.<span class="hljs-keyword">add</span>());
    }
 }
 </code></pre>
@@ -183,13 +183,13 @@ include com.foo.Calc;
 <pre><code class="lang-console">java -cp target/class com<span class="hljs-selector-class">.main</span><span class="hljs-selector-class">.App</span>
 </code></pre>
 <p>This will not work:</p>
-<pre><code class="lang-console">java -cp target/<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span></span>
-<span class="hljs-built_in">Error</span>: Could <span class="hljs-keyword">not</span> find <span class="hljs-literal">or</span> load main <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span></span>
+<pre><code class="lang-console">java -cp target/class App
+<span class="hljs-keyword">Error: </span>Could not find or load main class App
 </code></pre>
 <p>Nor will this work:</p>
-<pre><code class="lang-console">cd target/<span class="hljs-class"><span class="hljs-keyword">class</span>/<span class="hljs-title">com</span>/<span class="hljs-title">main</span></span>
+<pre><code class="lang-console">cd target/class/com/main
 java App
-<span class="hljs-built_in">Error</span>: Could <span class="hljs-keyword">not</span> find <span class="hljs-literal">or</span> load main <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span></span>
+<span class="hljs-keyword">Error: </span>Could not find or load main class App
 </code></pre>
 <p>This is because <strong>java</strong> will look for App class inside <em>target/class</em> (or <em>target/class/com/main</em> in second case), but our App class is inside <em>target/class</em> bundled in <em>com.main</em> package. We need to invoke the program using the same package notation - <em>com.main.App</em>. Think of the folder in <em>-cp</em> option as the point from where all the referenced classes in their respective packages need to be looked up from.</p>
 <p>This will work, when we run the program from <em>target/class/com/main</em> location:</p>
@@ -205,7 +205,7 @@ java -<span class="hljs-keyword">cp</span> ../../ <span class="hljs-keyword">com
          <div class="col-md-10">
             <div class="post-footer">
                <br/><br/>
-               Previous: <a href='/blog/posts\2015-03-02-windows-environment-variable-stuff'>Windows Environment Variable Stuff</a>
+               Previous: <a href='/blog/posts/2015-03-02-windows-environment-variable-stuff'>Windows Environment Variable Stuff</a>
             </div>
          </div>
       </div>

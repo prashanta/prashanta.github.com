@@ -1,10 +1,12 @@
 - [S] Java Rudiments Part 2
-- [S] Using xlsx.js
-- [S] Recursive Synchronous Calls in node.js using Promises
 - [S] Barcode printing using GoDex printer the hard way
 - [S] Talk about printNode
+- [S] Mozaik plugin - MQTT
+- [S] Recursive Synchronous Calls in node.js using Promises
 - [B] Running a GESBC-9G20u from scratch
 - [H] First impressions from using NodeMCU
 - [H] Tips on documenting LCD interface - black and white/ gamma correction
 - [S] WebLCD - porting LCD to web - simulator
 - [B] Creating process graph using breakout.js
+
+- Setup tagging in blog
