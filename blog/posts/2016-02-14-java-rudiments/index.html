@@ -55,7 +55,16 @@
 <p>Get the source code used in this post from <a href="https://github.com/prashanta/java_rudiments">github</a>. Go ahead and clone the repository:</p>
 <pre><code>git clone git@github<span class="hljs-selector-class">.com</span>:prashanta/java_rudiments<span class="hljs-selector-class">.git</span>
 cd java_rudiments
-</code></pre><p><span id="1"></span></p>
+</code></pre><p><br>
+The flow is going to look like this:</p>
+<h4 id="1-the-first-application-hello-world-1-">1. <a href="#1">The First Application - Hello World</a></h4>
+<h4 id="2-working-with-multiple-source-files-2-">2. <a href="#2">Working with multiple source files</a></h4>
+<h4 id="3-using-package-3-">3. <a href="#3">Using Package</a></h4>
+<h4 id="4-using-class-libraries-4-">4. <a href="#4">Using Class Libraries</a></h4>
+<h4 id="5-one-more-take-on-java-libraries-5-">5. <a href="#5">One More Take on Java Libraries</a></h4>
+<h4 id="6-meet-maven-6-">6. <a href="#6">Meet Maven</a></h4>
+<p><br>
+<span id="1"></span></p>
 <h3 id="1-the-first-application-hello-world">1. The First Application - Hello World</h3>
 <p>Lets start off with a basic Java program called <em>App.java</em>:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">App</span>{
@@ -216,6 +225,7 @@ java App
 <pre><code class="lang-console">java -cp Calc<span class="hljs-selector-class">.jar</span> com<span class="hljs-selector-class">.main</span><span class="hljs-selector-class">.App</span>
 </code></pre>
 <p>Now this jar file can be distributed to be used by anyone without actually exposing the source code.</p>
+<p><span id="4"></span></p>
 <h3 id="4-using-class-libraries">4. Using Class Libraries</h3>
 <p>With Class Libraries Here we are going to utilize extenal library  Let&#39;s start off by using the previously created <a href="https://github.com/prashanta/java_rudiments/tree/master/3"><em>Calc.jar</em></a> archive. Here we are going to import the functionality of <em>Calc</em> to our new program.</p>
 <p>We will create a simple application:</p>
@@ -255,7 +265,8 @@ import com.foo.Calc;
 
 <p>To run:</p>
 <pre><code>java -cp <span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">Calc</span>.<span class="hljs-title">jar</span>:<span class="hljs-title">target</span>/<span class="hljs-title">class</span>/ <span class="hljs-title">com</span>.<span class="hljs-title">bar</span>.<span class="hljs-title">App</span></span>
-</code></pre><h3 id="5-one-more-take-on-java-libraries">5. One More Take on Java Libraries</h3>
+</code></pre><p><span id="5"></span></p>
+<h3 id="5-one-more-take-on-java-libraries">5. One More Take on Java Libraries</h3>
 <p>Let&#39;s try one more example using Java Libraries, this time standard libraries that comes with JVM itself - SWING GUI toolkit. Here is how the program looks:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">import</span> javax.swing.*;
 <span class="hljs-keyword">import</span> java.awt.Dimension;
@@ -289,13 +300,14 @@ import com.foo.Calc;
 <pre><code><span class="hljs-attribute">java Main</span>
 </code></pre><p>You should see a GUI application like this,
 <img src='../../../img/posts/swing_gui.png'></p>
+<p><span id="6"></span></p>
 <h3 id="6-meet-maven">6. Meet Maven</h3>
 <p>As functionalities and features get added to applications, code management and build process start getting complicated. This is where <a href='https://maven.apache.org' target='_blank'>Maven</a> comes in. Maven is a very handly tool, its key features are - bootsraping application structure, package management, build automation and documentation. I am not going to go into detail here, but just a brief introduction. In a nutshell, maven helps to first bootstrap a Java application from scratch with basic structure, this essentially creates a <em>pom.xml</em> file that contains all necessary information required by maven (think package.json for npm). Then you can specify dependencies in <em>pom.xml</em>, which maven will download from a repository. Finally, you can then define build instructions in the xml file for building your applications.</p>
 <p>Go into the <em>java_rudiments/6/fee</em> folder in the downloades sample code. To compile just run:</p>
 <pre><code>mvn <span class="hljs-class"><span class="hljs-keyword">package</span></span>
 </code></pre><p>To run</p>
 <pre><code>java -cp target/fee-<span class="hljs-number">1.0</span>-SNAPSHOT<span class="hljs-selector-class">.jar</span> com<span class="hljs-selector-class">.foo</span><span class="hljs-selector-class">.bar</span><span class="hljs-selector-class">.App</span>
-</code></pre><p>Thats all for now.</p>
+</code></pre><p>As you can see Maven provides high level abstraction and relieves us from low level steps discussed in the beginning.  </p>
 
         </div>
 
@@ -333,6 +345,9 @@ import com.foo.Calc;
 
     </div>
 </body>
+<script>
+document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1"></' + 'script>')
+</script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
