@@ -1,6 +1,4 @@
-- [S] Java Rudiments Part 2
 - [B] Stab at GESBC-9G20u
-- [H] First impressions from using NodeMCU
 - [H] Tips on documenting LCD interface - black and white/ gamma correction
 - It's called 'Quantified Self'
 
@@ -9,5 +7,4 @@
 - [S] Recursive Synchronous Calls in node.js using Promises
 - [S] WebLCD - porting LCD to web - simulator
 - [B] Creating process graph using breakout.js
-
 - Setup tagging in blog

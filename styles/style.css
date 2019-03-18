@@ -38,7 +38,6 @@ html, body {
     padding-top: 20px;
     font-size: 50px;
     letter-spacing: -4px;
-    font-weight: 200;
     text-align: center;
 }
 
@@ -47,7 +46,6 @@ html, body {
     margin-left: 10%;
     margin-right: 10%;
     color: #EEE;
-    font-weight: 200;
     text-align: center;
 }
 
@@ -58,13 +56,11 @@ html, body {
 
 .last-name{
     color: #AAB8C2;
-    font-weight: 100;
 }
 
 .main-link a {
     display: inline-block;
     margin: 2px 0px 2px -2px;
-    color: #94ffc6;
     text-decoration: none;
     transition: all 0.5s;
 }
@@ -107,7 +103,6 @@ html, body {
 }
 
 .site_title{
-    font-weight: 100;
     font-size: 30px;
     letter-spacing: -2px;
     text-align: left;
@@ -143,14 +138,12 @@ html, body {
 }
 
 .post-index-title{
-    font-weight: 400;
     display: inline-block;;
     margin: auto;
     text-align: left;
 }
 
 .post-index-mini{
-    font-weight: 200;
     font-size: 16px;
 }
 
@@ -160,7 +153,6 @@ html, body {
     display: inline-block;;
     margin: auto;
     text-align: left;
-    font-weight: 200;
 }
 
 .post-date{
@@ -207,7 +199,6 @@ html, body {
 
 .article{
     font-size: 18px;
-    font-weight: 300;
 }
 
 .article img{

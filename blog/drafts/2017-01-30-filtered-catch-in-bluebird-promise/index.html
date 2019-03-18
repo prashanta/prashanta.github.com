@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>More on Exception Catching in Bluebird Promise</title>
+    <title>Filtered Exception Catching with Bluebird Promise</title>
     <meta name="description" content="I love moving electrons">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,600" rel="stylesheet"> -->
@@ -19,10 +19,10 @@
        <div class="title_container">
     
           <div class='site_title'>
-             <a href="/blog">prashanta/blog</a>
+             <a href="/">prashanta</a>
           </div>
           <div class='sub-link' style='float: right; margin-top: -10px'>
-             <a href="/">Home</a>
+              <a href="/about">About</a>
           </div>
           <div class='site_tagline'>I love moving electrons</div>
     
@@ -31,47 +31,56 @@
     <div class='container-fluid'>
 
         <div class='post-date'>
-            30 Jan, 2017
+            29 Jan, 2017
         </div>
 
         <div class="post-title">
-            <div>More on Exception Catching in Bluebird Promise</div>
+            <div>Filtered Exception Catching with Bluebird Promise</div>
         </div>
 
         <div class="post-tag-container">
+            <div class='post-tag'>
+                <a href='../../topics/javascript/'>javascript</a>
+            </div>
         </div>
 
         <div class="article">
-            <p>Since the day I discovered <a href="http://bluebirdjs.com/">blubird.js</a> I have found myself using it on so many instances.</p>
-<p>I have a promise chain like so:</p>
-<pre><code class="lang-javascript">// File: index.js
-checkNetworkConnection()
+            <p>The promise pattern in javascript is a mighty abstraction. Apart from the obvious advantage of writing sequential asynchronous code in less error-prone synchronous manner; it provides inherient error handling. Bluebird&#39;s promise library provides potpourri of features including filtered <a href="http://bluebirdjs.com/docs/api/catch.html#filtered-catch">exception catching</a>. </p>
+<p>Let&#39;s look at a simple promise chain:</p>
+<pre><code class="lang-javascript">checkNetworkConnection()
 .<span class="hljs-keyword">then</span>(checkToken)
 .<span class="hljs-keyword">then</span>(checkSerialPort)
 .<span class="hljs-keyword">catch</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(</span><span class="hljs-built_in">error</span>){
     <span class="hljs-built_in">log</span>.<span class="hljs-built_in">error</span>(<span class="hljs-built_in">error</span>.message);
 });
 </code></pre>
-<p>This is a very neat looking promise chain, however if any of <em>then</em> functions reject or throw exception, the tailing catch is not going know where that happened <a href="http://bluebirdjs.com/">Bluebird</a> provides a filter mechanism for implementing <a href="http://bluebirdjs.com/docs/api/catch.html#filtered-catch">filtered catch</a>. Lets look at the catch syntax for filtering:</p>
+<p>This is a very neat looking promise chain, however if any of <em>then</em> functions reject or throw exception, the tailing catch is not going know where that happened, unless a switch case is used to check possible error type/code. Bluebird&#39;s promise provides a clean mechanism for implementing filtered catch. The catch syntax for filtering looks like this:</p>
 <pre><code class="lang-javascript">.catch(
     <span class="hljs-keyword">class</span> ErrorClass|<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(any error)</span></span>|Object predicate...,
     <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(any error)</span></span> handler
 ) -&gt; Promise
 </code></pre>
-<p>The first argument is a filter clause which identifies type of error the catch method will handle. This argument can be a error class/constructor.</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// File: NetworkConnectionError.js</span>
-const _code = <span class="hljs-symbol">'__NETWORK_NOT_CONNECTE</span>D';
+<p>The first argument is a filter clause which identifies type of error the catch method will handle, this filter clause can be an error class/constructor. Let&#39;s define a custom error object:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ErrorA.js</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ErrorA</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"Error A"</span>;
+    <span class="hljs-keyword">this</span>.code = <span class="hljs-string">"ERROR_CODE_A"</span>;
+    <span class="hljs-keyword">this</span>.message = message;
+}
+ErrorA.prototype = <span class="hljs-built_in">Object</span>.create(<span class="hljs-built_in">Error</span>.prototype);
+
+<span class="hljs-built_in">module</span>.exports = ErrorA;
+</code></pre>
+<p>Same thing in ES6:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// NetworkConnectionError.js</span>
 export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NetworkConnectionError</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Error</span></span>{
     constructor(){
-        <span class="hljs-keyword">super</span>(<span class="hljs-string">"Network not connected"</span>);
-        <span class="hljs-keyword">this</span>.code = _code;
+        <span class="hljs-keyword">super</span>(<span class="hljs-string">"Error A"</span>);
+        <span class="hljs-keyword">this</span>.code = <span class="hljs-string">"ERROR_CODE_A"</span>;
     }
-    static check(){
-        <span class="hljs-keyword">return</span> {code: _code}
-    }    
 }
 </code></pre>
-<pre><code class="lang-javascript">// File: index.js
+<pre><code class="lang-javascript">// index.js
 <span class="hljs-keyword">import</span> NetworkConnectionError from <span class="hljs-comment">'./NetworkConnectionError';</span>
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkNetworkConnection</span>(</span>){
@@ -90,7 +99,6 @@ checkNetworkConnection()
     <span class="hljs-built_in">log</span>.<span class="hljs-built_in">error</span>(<span class="hljs-built_in">error</span>.message);
 });
 </code></pre>
-<script src="https://gist.github.com/prashanta/89b82a737e8e2ea300682d1b8f8fce7d.js"></script>
 
         </div>
 
